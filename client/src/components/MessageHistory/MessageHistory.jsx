@@ -71,7 +71,6 @@ export default function messageHistory() {
     if (dateRange[0].startDate !== undefined) {
       let startDate = dateRange[0].startDate;
       let endDate = dateRange[0].endDate;
-      console.log(startDate)
 
       axios.post(serverBasePath + '/history',
         { startDate: startDate, endDate: endDate, chatbotId: id },
@@ -84,7 +83,6 @@ export default function messageHistory() {
         }
       )
         .then((response) => {
-          console.log(response.data)
           const data = response.data;
           setHistory(data.history);
         })
@@ -128,7 +126,6 @@ export default function messageHistory() {
     )
       .then((response) => {
         const data = response.data;
-        console.log(data)
         setMessages(data);
         setChatView(true);
       })

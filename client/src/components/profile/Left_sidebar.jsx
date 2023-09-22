@@ -41,7 +41,6 @@ export default function Left_sidebar() {
 
     // ------------------add new Team------------------
     const add_new_team_popup=()=>{
-        console.log("caafasdfdas")
         if(AddteamPopup===false){
             setaddteamPopup(true)
         }else{

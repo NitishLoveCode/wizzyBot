@@ -70,7 +70,6 @@ export default function Q_and_a() {
     }
 
     function sendQuestions(questions) {
-        console.log(questions)
         axios.post(serverBasePath + '/train/addQuestions', { QA: questions, chatbotId: id }, {
             headers: {
                 'content-type': 'application/json',

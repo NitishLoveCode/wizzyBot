@@ -17,7 +17,6 @@ export default function Scraped_url({ agencyView, agencyClient }) {
   const [sources, setSources] = useState(location.state.sources);
   const [totalCharacters, setTotalCharacters] = useState(0);
   const navigate = useNavigate();
-  console.log(agencyClient)
 
   useEffect(() => {
     axios.get(serverBasePath + '/auth/isAuthenticated', {
@@ -39,7 +38,6 @@ export default function Scraped_url({ agencyView, agencyClient }) {
 
   // --------------human and AI bot function-----------------
   const human_ai_popup = () => {
-    console.log("human_ai_popup called")
     if (selectMode == false) {
       setselectMode(true);
     } else {
@@ -96,7 +94,6 @@ export default function Scraped_url({ agencyView, agencyClient }) {
 
         if (data.links !== undefined && response.status !== 400) {
           navigate(agencyView ? `client-dashboard/${agencyClient.id}` :'/Dashboard');
-          console.log('done')
         }
       })
       .catch(err => console.log(err));
@@ -104,7 +101,6 @@ export default function Scraped_url({ agencyView, agencyClient }) {
 
   useEffect(() => {
     sources.forEach(link => {
-      console.log(link.charCount)
       setTotalCharacters(totalCharacters => totalCharacters + link.charCount)
     });
   }, []);

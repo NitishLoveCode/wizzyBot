@@ -34,7 +34,6 @@ export default function ChatbotCard({ chatbot, delete_traind_bot }) {
                             delete_traind_bot(chatbot.id);
                         }
                         else {
-                            console.log(chatbot._id)
                             delete_traind_bot(chatbot._id);
 
                         }

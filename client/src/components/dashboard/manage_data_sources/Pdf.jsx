@@ -20,7 +20,6 @@ export default function Pdf() {
         // Append new files to existing ones
         setFiles(files => [...files, ...e.target.files]);
 
-        console.log('e', e.target.files)
         setUploadingFile(e.target.files[0].name);
 
 

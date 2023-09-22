@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../shared_components/Button'
+import { FcGoogle } from "react-icons/fc"
 import axios from 'axios';
 import serverBasePath from '../../../constants';
 
@@ -10,6 +11,10 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    function authencticateWithGoogle() {
+        window.open(serverBasePath + '/auth/login/user/google', '_self')
+    }
 
     function sendToBackend() {
         setError('');
@@ -78,7 +83,14 @@ export default function Login() {
                         </Link>
                     </div>
                     {error !== '' && <p className='text-red-400'>{error}</p>}
-                    <Button style={"bg-main h-[36px] text-white p-1 w-full rounded-md active:scale-95"} text={"Login"} action={sendToBackend} />
+                    <Button style={"flex items-center justify-center w-full border border-gray-400 bg-main text-white text-lg rounded py-2 transition duration-500 ease select-none hover:bg-blue-700 hover:text-white focus:outline-none focus:shadow-outline scale-95"} text={"Login"} action={sendToBackend} />
+                    <Button style={"flex items-center justify-center w-full border border-gray-400 bg-white text-black text-lg rounded py-2 transition duration-500 ease select-none hover:bg-blue-700 hover:text-white focus:outline-none focus:shadow-outline scale-95"} text={<><FcGoogle size={20} className="mr-2" />
+                        <span>Login with Google</span> </>} action={authencticateWithGoogle} />
+                    {/* <button className="flex items-center justify-center border border-gray-400 bg-white text-black text-sm rounded px-4 py-2 transition duration-500 ease select-none hover:bg-blue-400 hover:text-white focus:outline-none focus:shadow-outline scale-95"
+                        onClick={() => console.log('Google Button Clicked')}>
+                        <FcGoogle size={20} className="mr-2" />
+                        <span>Login with Google</span>
+                    </button> */}
                 </div>
             </div>
         </>

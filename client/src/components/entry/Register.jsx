@@ -11,6 +11,10 @@ export default function Register() {
     const [error, setError] = useState('')
     const navigate = useNavigate();
 
+    function authencticateWithGoogle() {
+        window.open(serverBasePath + '/auth/login/user/google', '_self')
+    }
+
     function sendToBackend() {
         setError('');
         if (email === '' || password === '' || name === '') {
@@ -93,7 +97,9 @@ export default function Register() {
                         <label className='underline'>I accept the privacy policy</label>
                     </div>
                     {error !== '' && <p className='text-red-400'>{error}</p>}
-                    <Button style={"bg-main h-[36px] text-white p-1 w-full rounded-md active:scale-95"} text={"Register"} action={sendToBackend} />
+                    <Button style={"flex items-center justify-center w-full border border-gray-400 bg-main text-white text-lg rounded py-2 transition duration-500 ease select-none hover:bg-blue-700 hover:text-white focus:outline-none focus:shadow-outline scale-95"} text={"Login"} action={sendToBackend} />
+                    <Button style={"flex items-center justify-center w-full border border-gray-400 bg-white text-black text-lg rounded py-2 transition duration-500 ease select-none hover:bg-blue-700 hover:text-white focus:outline-none focus:shadow-outline scale-95"} text={<><FcGoogle size={20} className="mr-2" />
+                        <span>Login with Google</span> </>} action={authencticateWithGoogle} />
                 </div>
             </div>
         </>
