@@ -26,6 +26,7 @@ export default function Root_page({ agencyView }) {
     const { id } = useParams();
 
     const [messages, setMessages] = useState([]);
+    const [botState, setBotState] = useState([]);
 
     useEffect(() => {
         socket.connect()
@@ -64,6 +65,22 @@ export default function Root_page({ agencyView }) {
                     console.log(messages[messages.length - 1].signature, data.signature)
                     return;
                 }
+            }
+
+            if (data.botState !== null && data.botState!== undefined){
+                setBotState(botState =>{
+                    const bots = botState.filter(bot => bot.socketId !== socketId);
+                    bots.push({
+                        socketId: socketId,
+                        state: 'Start'
+                    })
+                    return bots;
+                })
+            }
+            else{
+                setBotState(bots => {
+                    return [...bots, {socketId: socketId, state: 'Stop'}]
+                })
             }
 
             setMessages(prevMessages => {
@@ -221,7 +238,7 @@ export default function Root_page({ agencyView }) {
                     location.pathname === `/chatbot/embed-and-Share/${id}` ? <Embed_and_Share /> : ""
                 }
                 {
-                    location.pathname === `/chatbot/chat-inbox/${id}` ? <Chat_Inbox messages={messages} setMessages={setMessages} /> : ""
+                    location.pathname === `/chatbot/chat-inbox/${id}` ? <Chat_Inbox messages={messages} setMessages={setMessages} botState={botState} setBotState={setBotState} /> : ""
                 }
                 {
                     location.pathname === `/chatbot/message-history/${id}` ? <MessageHistory /> : ""
