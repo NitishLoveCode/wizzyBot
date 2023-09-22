@@ -46,21 +46,21 @@ export default function User_popup_info() {
           <h3>Signed in as</h3>
           <p>{user.email}</p>
         </div>
-<Link to={"/agency-dashboard"}>
-        <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
-          Client Accounts
-        </div>
-</Link>
-<Link to={"/profile/personal-information"}>
-        <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
-          <h3>Your Profile</h3>
-        </div>
- </Link>
-<Link to={"/profile/team"}>
-        <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
-          <h3>Teammates</h3>
-        </div>
-</Link>
+        <Link to={"/agency-dashboard"}>
+          <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
+            Client Accounts
+          </div>
+        </Link>
+        <Link to={"/profile/personal-information"}>
+          <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
+            <h3>Your Profile</h3>
+          </div>
+        </Link>
+        <Link to={"/profile/team"}>
+          <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
+            <h3>Teammates</h3>
+          </div>
+        </Link>
         <div className='w-full h-12 active:scale-95 border-b pl-2 cursor-pointer flex items-center hover:bg-gray-100'>
           <h3>Billing</h3>
 
