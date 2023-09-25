@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '../shared_components/Button'
 import axios from 'axios';
 import serverBasePath from '../../../constants';
+import { FcGoogle } from "react-icons/fc";
 
 export default function Register() {
     const [name, setName] = useState('');
