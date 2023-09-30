@@ -18,7 +18,7 @@ export default function Source_1_2_card() {
                     </div>
                 </div>
 
-                <div className=' flex sm:justify-center items-center gap-4'>
+                <div id='for_drive_step2' className=' flex sm:justify-center items-center gap-4'>
                     <div className={`${location.pathname==="/scrape" ? "border-4 text-main border-main":"border-4 text-gray-600 border-gray-600"} justify-center flex items-center text-center w-10 h-10 rounded-full`}>
                         <h2>2</h2>
                     </div>

@@ -8,7 +8,31 @@ import axios from 'axios'
 import serverBasePath from '../../../../constants'
 import LoadingDots from '../../loading/LoadingDots'
 
+
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
+
 export default function Text() {
+
+    // ---------------for driver.js-------------
+const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#driver_Add_new_text_conten', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '.driver_Add_new_content', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      driverObj.drive();
+    },3000)
+  },[])
+  // --------------------------------
 
     const [text, setText] = useState('');
     const [loaded, setLoaded] = useState(false); //used to disbale the input field until data is loaded
@@ -76,7 +100,7 @@ export default function Text() {
                         {/* <div>
                 <Input_field style={"w-full outline-none pl-2 border-[1px] border-gray-400 rounded-md h-10"} placeholder={"title"}/>
             </div> */}
-                        <div>
+                        <div id='driver_Add_new_text_conten'>
                             <textarea
                                 className='border-[1px] rounded-md outline-none p-2 w-full border-gray-400'
                                 placeholder={loaded ? "Add Data here to train the model" : 'Please wait while the data is being loaded'}
@@ -89,7 +113,7 @@ export default function Text() {
                             />
                         </div>
                         <div>
-                            <Button style={"bg-gray-900 w-[95vw] sm:w-auto p-3 rounded-md active:scale-95 text-white pl-8 pr-8"} text={"Add Content"} action={sumbitText} />
+                            <Button style={"bg-gray-900 driver_Add_new_content w-fit p-3 rounded-md active:scale-95 text-white pl-8 pr-8"} text={"Add Content"} action={sumbitText} />
                         </div>
 
                         <hr />

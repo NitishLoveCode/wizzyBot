@@ -11,7 +11,33 @@ import axios from 'axios'
 import serverBasePath from '../../../../constants'
 import { useParams } from 'react-router-dom'
 
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
+
 export default function Q_and_a() {
+
+    // ---------------for driver.js-------------
+
+    const driverObj = driver({
+        showProgress: true,
+        showButtons: ['next', 'previous'],
+        steps: [
+          { element: '#driver_add_question_answer', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+        ]
+      });
+      useEffect(()=>{
+        setTimeout(()=>{
+          driverObj.drive();
+        },3000)
+      },[])
+      // --------------------------------
+
+
+
     const [loaded, setLoaded] = useState(false);
     const [add_new_question, setadd_new_question] = useState(false);
     const [QA, setQA] = useState([]);
@@ -132,7 +158,7 @@ export default function Q_and_a() {
                             {/* <div className='bg-green-100 active:scale-95 p-2 rounded-md'>
                     <button>Generate with AI</button>
                 </div> */}
-                            <button
+                            <button id='driver_add_question_answer'
                                 onClick={() => new_question_adding()}
                                 className='bg-green-100 active:scale-95 flex items-center gap-2 p-2 px-8 rounded-md'>
                                 <MdAddCircle />

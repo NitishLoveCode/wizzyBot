@@ -11,8 +11,30 @@ import { addDays } from 'date-fns';
 import ConversationHistory from './childs/ConversationHistory'
 import DatePicker from './childs/DatePicker'
 
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
 
 export default function messageHistory() {
+  // ---------------for driver.js-------------
+  const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#driver_choose_date', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#driver_Export_Filtered_Converations', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      driverObj.drive();
+    },3000)
+  },[])
+  // --------------------------------
+
 
   const { id } = useParams();
   const [messages, setMessages] = useState([]); //stores all the messages from the selected conversation.
@@ -146,7 +168,7 @@ export default function messageHistory() {
           <h2 className='text-4xl text-center'>Message History</h2>
           <div className='flex sm:flex-row flex-col gap-10 sm:justify-items-center sm:ml-16 mt-10'>
             <div className="flex flex-col w-full sm:w-1/2 lg:w-1/3 m-2 sm:m-10 items-center sm:items-start">
-              <button className="w-[94%] sm:w-11/12 bg-main m-1.5 rounded p-2 font-bold text-white focus:blue300 hover:bg-blue-600"
+              <button id='driver_choose_date' className="w-[94%] sm:w-11/12 bg-main m-1.5 rounded p-2 font-bold text-white focus:blue300 hover:bg-blue-600"
                 onClick={toggleDatePicker}
               // ref={ref}
               >Choose Dates</button>
@@ -155,7 +177,7 @@ export default function messageHistory() {
                 {selectOn && <DatePicker sendToBackend={sendToBackend} date={date} setDate={setDate} />}
               </div>
 
-              <button
+              <button id='driver_Export_Filtered_Converations'
                 className="w-[94%] sm:w-11/12 bg-main m-1.5 rounded p-2 font-bold text-white focus:blue300 hover:bg-blue-600"
                 onClick={downloadJson}
               >Export Filtered Converations

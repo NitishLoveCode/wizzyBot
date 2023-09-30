@@ -33,7 +33,7 @@ export default function HeaderBar() {
 
   return (
     <>
-      <div className='relative'>
+      <div className='relative '>
         <div className='flex justify-between sm:pl-10 sm:pr-10 mb-8 shadow-md p-1'>
             <Link to={"/Dashboard"}>
             <div className='flex cursor-pointer active:scale-95 items-center'>

@@ -12,9 +12,11 @@ import toast from 'react-hot-toast';
 // -----for driver.js-----------
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import Loading from '../loading/Loading'
 // -------------
 
 export default function Load_url({ agencyView }) {
+  const [loadingStart, setloadingStart]=useState(false)
 
   // ---------------for driver.js-------------
   const driverObj = driver({
@@ -40,7 +42,10 @@ export default function Load_url({ agencyView }) {
 
 
   function getLinks() {
-
+    
+    if(baseLink){
+      setloadingStart(true)
+    }
     axios.post(serverBasePath + '/train/website/baseLink', { url: baseLink }, {
       headers: {
         'Content-Type': 'application/json',
@@ -51,6 +56,7 @@ export default function Load_url({ agencyView }) {
       .then((response) => {
         const data = response.data;
         if (data.pagesData !== undefined) {
+          
           data.pagesData.forEach((link, index) => {
             if (link.id === undefined) {
               link.id = index;
@@ -92,6 +98,15 @@ export default function Load_url({ agencyView }) {
             action={getLinks}
           />
         </div>
+        {
+          loadingStart ? <>
+          <div className='absolute'>
+            <div className='mx-auto w-fit h-fit'>
+              <Loading/>
+            </div>
+          </div></>:<></>
+        }
+        
 
         {/* <div className='flex w-full gap-2 justify-center items-center'>
                 <div className='w-[25%] bg-gray-400 h-[1px]'></div>
@@ -105,6 +120,7 @@ export default function Load_url({ agencyView }) {
             <Button style={"bg-gray-800 mb-14 text-white p-3 pl-7 pr-7 rounded-full active:scale-95"} text={"Save and load sitemap"}/> */}
 
       </div>
+      
     </>
   )
 }
