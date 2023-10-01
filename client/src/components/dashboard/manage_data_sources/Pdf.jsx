@@ -26,8 +26,12 @@ export default function Pdf() {
   });
   useEffect(()=>{
     setTimeout(()=>{
-      driverObj.drive();
-    },3000)
+      const find_new_user=localStorage.getItem("embed-and-pdf")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("embed-and-pdf",true)
+      }
+    },2000)
   },[])
   // --------------------------------
 

@@ -23,20 +23,7 @@ export default function Manage_Data_Sources() {
 
   
   // ---------------for driver.js-------------
-  const driverObj = driver({
-    showProgress: true,
-    showButtons: ['next', 'previous'],
-    steps: [
-      { element: '#driver_add_as_message', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#driver_share_as_full_chat', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
-      { element: '#driver_Add_as_inline_chat', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
-    ]
-  });
-  useEffect(()=>{
-    setTimeout(()=>{
-      driverObj.drive();
-    },3000)
-  },[])
+
   // --------------------------------
 
 

@@ -31,8 +31,12 @@ export default function Q_and_a() {
       });
       useEffect(()=>{
         setTimeout(()=>{
-          driverObj.drive();
-        },3000)
+          const find_new_user=localStorage.getItem("embed-and-q-and-a")
+          if(find_new_user===null){
+            driverObj.drive();
+            localStorage.setItem("embed-and-q-and-a",true)
+          }
+        },2000)
       },[])
       // --------------------------------
 

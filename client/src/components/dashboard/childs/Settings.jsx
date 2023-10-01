@@ -28,9 +28,14 @@ export default function Settings() {
       { element: '#for_drive_cencel_setting', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
     ]
   });
+
   useEffect(()=>{
     setTimeout(()=>{
-      driverObj.drive();
+      const find_new_user=localStorage.getItem("new_for_setting")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("new_for_setting",true)
+      }
     },2000)
   },[])
   // --------------------------------

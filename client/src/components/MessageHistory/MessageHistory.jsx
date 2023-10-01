@@ -30,8 +30,12 @@ export default function messageHistory() {
   });
   useEffect(()=>{
     setTimeout(()=>{
-      driverObj.drive();
-    },3000)
+      const find_new_user=localStorage.getItem("embed-and-messageHistory")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("embed-and-messageHistory",true)
+      }
+    },2000)
   },[])
   // --------------------------------
 

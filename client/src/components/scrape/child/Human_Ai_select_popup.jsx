@@ -4,6 +4,7 @@ import Button from '../../shared_components/Button';
 
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import { redirect } from 'react-router-dom';
 
 // -----------------------------------------------
 
@@ -23,8 +24,12 @@ export default function Human_Ai_select_popup({action}) {
   
   useEffect(()=>{
     setTimeout(()=>{
-      driverObj.drive();
-    },1000)
+      const find_new_user=localStorage.getItem("new_for_human_ai_select_popup")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("new_for_human_ai_select_popup",true)
+      }
+    },2000)
   },[])
   // --------------------------------
 
@@ -42,6 +47,8 @@ export default function Human_Ai_select_popup({action}) {
         }
     }
 
+    // ----------------navigate to setting page------------
+   
   return (
     <>
         <div className='absolute top-0 bg-opacity-90 bg-gray-600 w-full h-full'>
