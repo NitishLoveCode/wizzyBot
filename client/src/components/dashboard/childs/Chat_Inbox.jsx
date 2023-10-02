@@ -12,14 +12,14 @@ import image from '../../../assets/listening.svg';
 import SocketContext from '../../../SocketContext';
 // const socket = socketIOClient(serverBasePath);
 
-export default function Chat_Inbox({ messages, setMessages }) {
+export default function Chat_Inbox({ messages, setMessages, botState, setBotState }) {
   const socket = useContext(SocketContext);
   const { id } = useParams();
   const [active, setActive] = useState(0);
   // const [messages, setMessages] = useState([
   //   // { conversationId: '321', socketId: 'Sameer', conversation: [{}, { sender: 'bot', body: 'hello' }, { sender: 'user', body: 'kesay ho?' }] },
   // ]);
-  const [botState, setBotState] = useState('Stop');
+
   const [loading, setLoading] = useState('')
 
   function addMessage(message, conversationId) {
@@ -132,12 +132,25 @@ export default function Chat_Inbox({ messages, setMessages }) {
 
 
   function handleBotClick() {
-    if (botState === 'Stop') {
-      setBotState('Start');
+
+    if (botState[active].state === 'Stop') {
+      const temp = {
+        socketId: botState[active].socketId,
+        state: 'Start'
+      }
+      setBotState(bots => {
+        return [...bots.slice(0, active), temp, ...bots.slice(active + 1)]
+      });
       socket.emit('stop bot', messages[active].socketId);
     }
-    else if (botState === 'Start') {
-      setBotState('Stop');
+    else if (botState[active].state === 'Start') {
+      const temp = {
+        socketId: botState[active].socketId,
+        state: 'Stop'
+      }
+      setBotState(bots => {
+        return [...bots.slice(0, active), temp, ...bots.slice(active + 1)]
+      });
       socket.emit('start bot', messages[active].socketId);
     }
   }
@@ -204,6 +217,11 @@ export default function Chat_Inbox({ messages, setMessages }) {
         </>
       }
 
+      <div className='mt-2 sm:mt-4 flex sm:flex-row flex-col gap-2'>
+        <div className='w-full sm:w-[28vw] border-[1px] p-1 h-[80vh]'>
+          <div className='bg-gray-100 mb-2 rounded-3xl flex items-center'>
+            <input className='w-full bg-transparent h-10 outline-none px-2' placeholder='Search' type="text" name="search" id="" />
+          </div>
 
 
       {messages.length > 0 &&
@@ -226,7 +244,14 @@ export default function Chat_Inbox({ messages, setMessages }) {
                   className='bg-gray-700 active:scale-95 p-1 px-4 text-white rounded-md'
                   onClick={handleBotClick}
                 >
-                  <h3 className='text-[13px]'>{botState} bot</h3>
+                  <h3 className='text-[13px]'>{(() => {
+                    const bots = botState.filter(bot => bot.socketId === messages[active].socketId);
+                    if (bots.length > 0) {
+                      console.log(bots)
+
+                      return bots[0].state;
+                    }
+                  })()} bot</h3>
                 </div>
               </div>
             </div>
@@ -283,6 +308,8 @@ export default function Chat_Inbox({ messages, setMessages }) {
           </div>
         </>
       }
+    </div>
+    </div>
     </div>
   )
 }

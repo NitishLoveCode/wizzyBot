@@ -5,7 +5,37 @@ import { useParams } from 'react-router-dom';
 import serverBasePath from '../../../../constants';
 import axios from 'axios';
 
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
+
 export default function Main_chat_box() {
+
+  // ---------------for driver.js-------------
+  const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#for_drive_try_chat', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#for_drive_type_your_demo_chat', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#for_drive_type_your_demo_chat_send', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      const find_new_user=localStorage.getItem("new_for_preview")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("new_for_preview",true)
+      }
+    },2000)
+  },[])
+  // --------------------------------
+
+
   const { id } = useParams();
 
   const [text, setText] = useState('');
@@ -83,7 +113,7 @@ export default function Main_chat_box() {
     <>
       {/* ----------------right side chat------------- */}
       <div className='sticky top-0 ml-4 lg:ml-24 h-screen'>
-        <div className=' relative border-[1px] shadow-xl overflow-hidden rounded-3xl border-gray-300 w-full sm:w-[68vw] h-[80vh]'>
+        <div id='for_drive_try_chat' className=' relative border-[1px] shadow-xl overflow-hidden rounded-3xl border-gray-300 w-full sm:w-[68vw] h-[80vh]'>
           <div className={"bg-[#2188f3] px-2 py-2 header-bar-color h-14"}>
             {/* <img className='h-10' src="https://app.livechatai.com/_next/static/media/logo-white.94898d4d.png" alt="logo" /> */}
           </div>
@@ -106,7 +136,7 @@ export default function Main_chat_box() {
 
           <div className='absolute bg-white bottom-0 w-full'>
             <div className='border-[1px] h-14  px-2 mb-4 flex items-center'>
-              <input
+              <input id='for_drive_type_your_demo_chat'
                 className='outline-none w-full'
                 type="text"
                 name="message"
@@ -120,7 +150,7 @@ export default function Main_chat_box() {
                 placeholder='Send message'
                 required
                  />
-              <button onClick={sendMessage}>
+              <button id='for_drive_type_your_demo_chat_send' onClick={sendMessage}>
                 <AiOutlineSend className='pl-2 text-4xl' />
               </button>
             </div>

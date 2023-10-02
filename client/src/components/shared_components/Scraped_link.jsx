@@ -6,7 +6,7 @@ export default function Scraped_link({ link, data, id, deleteAction}) {
         <>
             <div className='flex items-center justify-center gap-6'>
                 <div>
-                    <input className='border-2 outline-none rounded-md w-full sm:w-[38vw] text-gray-600 h-10 pl-2' type="text" name="links" value={link} />
+                    <input className='border-2 outline-none rounded-md w-full sm:w-[28vw] text-gray-600 h-10 pl-2' type="text" name="links" value={link} />
                 </div>
                 <div>
                     <h3>{data}</h3>

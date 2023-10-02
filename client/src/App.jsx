@@ -18,6 +18,7 @@ import SocketContext from './SocketContext';
 import { getSocket } from './socket.jsx';
 // import GoogleButton from './test'
 import toast, { Toaster } from 'react-hot-toast';
+import LandingPage from './components/dashboard/landing/LandingPage'
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
 
   return (
     <>
+
       <div>
 
         <Toaster
@@ -65,10 +67,11 @@ export default function App() {
             <Route path='/reset-password/:token' element={<ResetPassword />} />
             <Route path='/agency-dashboard' element={<AgencyDashboard setAgencyClient={setAgencyClient} />} />
             {/* <Route path='/test' element={<GoogleButton />} /> */}
-
+            <Route path="/landing-1" element={<LandingPage/>}/>
           </Routes>
         </BrowserRouter>
       </SocketContext.Provider>
+
     </>
   )
 }
