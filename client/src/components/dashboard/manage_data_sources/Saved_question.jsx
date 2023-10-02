@@ -45,7 +45,7 @@ export default function Saved_question({ cur, deleteQuestion, sendQuestion }) {
                     <IoIosArrowDown className='text-2xl' />
                 </div>
                 {/* -------------------opened question---------------------------- */}
-                <div className={`${card_open ? "" : "hidden"} flex bg-gray-200 p-3 rounded-xl flex-col gap-2 mt10`}>
+                <div className={`${card_open ? "" : "hidden"} flex bg-gray-200 p-3 rounded-xl flex-col gap-2 mt-5`}>
 
                     <button
                         disabled={!setClicked}

@@ -91,6 +91,7 @@ export default function Q_and_a() {
             },
         })
             .then(response => {
+                setQA([]);
                 setQA(response.data.questionAnswers);
                 setLoaded(true);
             })
@@ -174,7 +175,7 @@ export default function Q_and_a() {
 
                         {/* -----------------------create new questions and answers--------- */}
                         {
-                            add_new_question ? <QuestionForm sendQuestions={sendQuestions} /> : ""
+                            add_new_question ? <QuestionForm sendQuestions={sendQuestions} key={1} /> : ""
                         }
 
 
@@ -188,7 +189,7 @@ export default function Q_and_a() {
                             <>
                                 {
                                     QA.map((cur) => {
-                                        return <Saved_question cur={cur} deleteQuestion={deleteQuestion} sendQuestion={sendQuestions} />
+                                        return <Saved_question cur={cur} deleteQuestion={deleteQuestion} sendQuestion={sendQuestions} key={cur.id} />
                                     })
 
                                 }
