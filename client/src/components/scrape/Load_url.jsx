@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Source_1_2_card from './child/Source_1_2_card'
 import Heading_text from '../shared_components/Heading_text'
 import Input_field from '../shared_components/Input_field'
@@ -37,8 +37,24 @@ export default function Load_url({ agencyView }) {
           navigate('/scrape', { state: { sources: data.pagesData } })
         }
       })
-      .catch(err => {console.log(err);toast.error(err.response.data.message !== undefined ? err.response.data.message : err.message)});
+      .catch(err => { console.log(err); toast.error(err.response.data.message !== undefined ? err.response.data.message : err.message) });
   }
+
+  useEffect(() => {
+    axios.get(serverBasePath + '/auth/isAuthenticated', {
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      withCredentials: true
+    })
+      .then((response) => {
+        if (response.data.authenticated === false) {
+          navigate('/login')
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
 
   return (
