@@ -3,8 +3,39 @@ import Heading_text from '../../shared_components/Heading_text'
 import CodeSnippet from './CodeSnippet'
 import { useParams } from 'react-router-dom'
 import serverBasePath from '../../../../constants';
+import { useEffect } from 'react';
+
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
 
 export default function Embed_and_Share() {
+
+  // ---------------for driver.js-------------
+  const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#driver_add_as_message', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#driver_share_as_full_chat', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+      { element: '#driver_Add_as_inline_chat', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      const find_new_user=localStorage.getItem("embed-and-Share")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("embed-and-Share",true)
+      }
+    },2000)
+  },[])
+  // --------------------------------
+
+
   const { id } = useParams();
 
   return (
@@ -14,7 +45,7 @@ export default function Embed_and_Share() {
           <h3 className='text-2xl mb-4'>Add as Messenger (AI Bot that can open and close)</h3>
           <h3 className='text-justify'>To add a floating button to specific pages, you can either paste (inject) the following code snippet into the head section or place it anywhere on the page if modifying the head code is not possible.</h3>
         </div>
-        <div className='flex sm:flex-row flex-col gap-8 justify-between'>
+        <div id='driver_add_as_message' className='flex sm:flex-row flex-col gap-8 justify-between'>
           <div className='w-[60vw] items-center flex rounded-md h-[30vh] bg-gray-900'>
             {
               <CodeSnippet codeString={`<script>\nconst chatbotId = '${id}';\n</script>\n\n <script\n  src = '${serverBasePath}/embed.js'\n defer>\n</script>\n\n`} />
@@ -30,7 +61,7 @@ export default function Embed_and_Share() {
           <h3 className='text-2xl mb-4'>Share as Full Page Chat</h3>
           <h3 className='text-justify'>You can share LiveChatAI with your desired visitor via this link.</h3>
         </div>
-        <div className='flex sm:flex-row flex-col gap-8 justify-between'>
+        <div id='driver_share_as_full_chat' className='flex sm:flex-row flex-col gap-8 justify-between'>
           <div className='w-[60vw] items-center flex rounded-md h-[30vh] bg-gray-900'>
             {
                <CodeSnippet codeString={`${serverBasePath}/iframe/${id}`} />
@@ -47,7 +78,7 @@ export default function Embed_and_Share() {
           <h3 className='text-2xl mb-4'>Add as Inline Chat (Embed within a webpage.)</h3>
           <h3 className='text-justify'>Paste (embed) this code snippet where you want to display your LiveChatAI within a specific webpage.</h3>
         </div>
-        <div className='flex sm:flex-row flex-col gap-8 justify-between'>
+        <div id='driver_Add_as_inline_chat' className='flex sm:flex-row flex-col gap-8 justify-between'>
           <div className='w-[60vw] items-center flex rounded-md h-[30vh] bg-gray-900'>
             {
               <CodeSnippet codeString={` \n<iframe\n src="${serverBasePath}/iframe/${id}"\n frameborder="0" \nstyle=" height:100%;" \nwidth="100%"\n></iframe>`} />

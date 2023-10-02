@@ -8,7 +8,7 @@ export default function HeaderRoot() {
 
   return (
     <>
-      <div className='w-screen'>
+      <div className=''>
         {
           location.pathname === "/login" || location.pathname.includes("/reset-password") || location.pathname.includes("/landing-1") || location.pathname === "/profile/billing" || location.pathname === "/forgot-password" || location.pathname === "/profile/team" || location.pathname === "/profile/personal-information" || location.pathname === "/register" || location.pathname === "/profile" ? "" : <HeaderBar />
         }

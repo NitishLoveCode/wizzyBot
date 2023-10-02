@@ -1,15 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import { IoMdAddCircleOutline } from "react-icons/io"
 import { BsDatabase } from "react-icons/bs"
-
-
 import axios from 'axios';
 import serverBasePath from '../../../../constants';
 import { useParams } from 'react-router-dom';
 import LoadingDots from '../../loading/LoadingDots';
 import FileCard from './FileCard';
 
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
 export default function Pdf() {
+
+     // ---------------for driver.js-------------
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#driver_Import_PDF_Content', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      const find_new_user=localStorage.getItem("embed-and-pdf")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("embed-and-pdf",true)
+      }
+    },2000)
+  },[])
+  // --------------------------------
+
+
     const [files, setFiles] = useState([]); // State to keep track of uploaded files
     const { id } = useParams();
     const [trainedFiles, setTrainedFiles] = useState([]);
@@ -110,7 +136,7 @@ export default function Pdf() {
                         <div className='mb-20 '>
                             {/* file uploader button */}
                             <label htmlFor="pdf_file">
-                                <div className='border-[1px] flex items-center justify-center gap-4 active:scale-95 cursor-pointer bg-green-100 border-gray-700 w-fit p-2 mt-4 rounded-md pl-8 pr-8'>
+                                <div id='driver_Import_PDF_Content' className='border-[1px] flex items-center justify-center gap-4 active:scale-95 cursor-pointer bg-green-100 border-gray-700 w-fit p-2 mt-4 rounded-md pl-8 pr-8'>
                                     <IoMdAddCircleOutline className='text-2xl' />
                                     <h3>Choose file</h3>
                                     <input
