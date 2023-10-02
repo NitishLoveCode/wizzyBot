@@ -28,7 +28,7 @@ export default function Manage_Data_Sources() {
 
 
     // --------for randring component------------
-    const [open, setopen]=useState("website")
+    const [open, setopen] = useState("website");
 
     const change_page=(page_name)=>{
       setopen(page_name)
@@ -39,18 +39,18 @@ export default function Manage_Data_Sources() {
     <>
       <div className='flex flex-col mb-10 gap-12 justify-center items-center'>
         <div className='flex w-fit pl-2 pr-2 gap-12 justify-center items-center border-b-2'>
-          <div onClick={()=>change_page("website")} className={`border-b-2 border-gray-600 cursor-pointer`}>
+          <div onClick={()=>change_page("website")} className={`cursor-pointer ${open === 'website' ? 'border-b-2 border-gray-600' : ''}`}>
             <h3>Website</h3>
           </div>
 
-          <div onClick={()=>change_page("text")} className={` border-b-2 border-gray-600 cursor-pointer`}>
+          <div onClick={()=>change_page("text")} className={`cursor-pointer ${open === 'text' ? 'border-b-2 border-gray-600' : ''}`}>
             <h3>Text</h3>
           </div>
           
-          <div onClick={()=>change_page("pdf")} className='cursor-pointer border-b-2 border-gray-600'>
+          <div onClick={()=>change_page("pdf")} className={`cursor-pointer ${open === 'pdf' ? 'border-b-2 border-gray-600' : ''}`}>
             <h3>PDF</h3>
           </div>
-          <div onClick={()=>change_page("qna")} className='cursor-pointer border-b-2 border-gray-600'>
+          <div onClick={()=>change_page("qna")} className={`cursor-pointer ${open === 'qna' ? 'border-b-2 border-gray-600' : ''}`}>
             <h3>Q&A</h3>
           </div>
         </div>
