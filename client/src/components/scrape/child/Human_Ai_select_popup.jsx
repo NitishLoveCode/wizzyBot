@@ -6,6 +6,7 @@ import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { redirect } from 'react-router-dom';
 import LoadingDots from '../../loading/LoadingDots';
+import logo from '../../../assets/logo.png';
 
 // -----------------------------------------------
 
@@ -100,7 +101,7 @@ export default function Human_Ai_select_popup({ action, closePopup }) {
             <div className='flex justify-center gap-[4.5rem] w-full mt-8'>
               <div id='driver_Ai_bot' className='w-56 justify-center flex flex-col bg-blue-100 rounded-md sm:h-32 border-2 border-blue-300'>
                 <div className='flex flex-col justify-center items-center w-full'>
-                  <img className='w-10 h-10' src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt="logo" />
+                  <img className='w-10 h-10' src={logo} alt="logo" />
                   <h3>Ai Bot</h3>
                   <div className='flex items-center justify-center gap-1 bg-blue-200 text-main pl-2 pr-2 rounded-xl'>
                     <div className='w-2 h-2 rounded-full bg-main'></div>
@@ -110,7 +111,7 @@ export default function Human_Ai_select_popup({ action, closePopup }) {
               </div>
               <div id='human_support_live_chat' className='w-56 flex justify-center items-center rounded-md h-32 border-2'>
                 <div className='flex flex-col justify-center items-center w-full'>
-                  <img className='w-10 h-10' src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt="logo" />
+                  <img className='w-10 h-10' src={logo} alt="logo" />
                   <h3>Human-Support Live Chat</h3>swith
                   <div onClick={() => human_ai_mode()} className='flex gap-1 bg-blue-200 text-main w-12 p-[3px] cursor-pointer rounded-xl'>
                     <div className={`${swith ? "ml-[25px]" : ""} w-4 h-4 rounded-full bg-main`}></div>
