@@ -31,7 +31,7 @@ export default function Setup_guide({BsArrowRightCircle,AiFillCheckCircle}) {
             <h3 className="text-3xl sm:text-4xl">How AIChatBox Works?</h3>
             <h3 className="mt-8">
               An innovative AI assistant, fueled by OpenAI technology,
-              LiveChatAI offers solutions to intricate issues while delivering
+              vistabots offers solutions to intricate issues while delivering
               more secure and precise responses compared to other AI bots
               available today.
             </h3>

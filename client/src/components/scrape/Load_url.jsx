@@ -102,7 +102,7 @@ export default function Load_url({ agencyView }) {
       <Source_1_2_card />
       <div className='flex flex-col gap-3 justify-center items-center text-center'>
         <Heading_text text_size={"text-xl sm:text-3xl mt-4 font-bold text-gray-800"} text={"Add a Website as Data Source"} />
-        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for LiveChatAI to crawl and import content."} />
+        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for Vistabots to crawl and import content."} />
         <Heading_text text_size={"text-sm mb-3 text-gray-500"} text={"Use the main domain (e.g., domain.com) to crawl all pages, or specify a sub-path (e.g., domain.com/help/) or subdomain (e.g., docs.domain.com) to limit the content imported. This helps in tailoring the AI bot's training to your specific needs."} />
         <div id='for_drive_load_url'>
           <Input_field
