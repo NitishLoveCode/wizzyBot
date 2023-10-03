@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 // -----for driver.js-----------
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
-import Loading from '../loading/Loading'
+import LoadingDots from '../loading/LoadingDots'
 // -------------
 
 export default function Load_url({ agencyView }) {
@@ -114,18 +114,11 @@ export default function Load_url({ agencyView }) {
           />
         </div>
         <div id='for_driver_getall_links'>
-          <Button style={"bg-gray-800 text-white p-3 pl-7 pr-7 rounded-full active:scale-95"} text={"Save and get all my links"}
+          <Button disabled={loadingStart} style={"bg-gray-800 text-white p-3 px-20 rounded-full active:scale-95"} text={loadingStart ? <LoadingDots size={1} color={'bg-white'}/>:"Get all links"}
             action={getLinks}
           />
         </div>
-        {
-          loadingStart ? <>
-          <div className='absolute'>
-            <div className='mx-auto w-fit h-fit'>
-              <Loading/>
-            </div>
-          </div></>:<></>
-        }
+
         
 
         {/* <div className='flex w-full gap-2 justify-center items-center'>

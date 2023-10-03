@@ -142,7 +142,7 @@ export default function Root_page({ agencyView }) {
             }
             <div className='ml-2 mr-2 sm:ml-24 pb-8 sm:mr-24 mt-10 gap-4 flex flex-col'>
                 <div>
-                    <h3 className='text-3xl pl-1 font-bold text-gray-800'>wizzyBot.com</h3>
+                    <h3 className='text-3xl pl-1 font-bold text-gray-800'>Vistabots.ai</h3>
                 </div>
 
                 <div className='flex justify-center border-b pb-3 items-center flex-col w-full'>

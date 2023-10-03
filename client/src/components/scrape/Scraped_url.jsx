@@ -73,6 +73,9 @@ export default function Scraped_url({ agencyView, agencyClient }) {
         else{
           if (location.state !== null) {
             setSources(location.state.sources);
+            location.state.sources.forEach(link => {
+              setTotalCharacters(totalCharacters => totalCharacters + link.charCount)
+            });
           }
           else {
             navigate('/load-url');
@@ -149,11 +152,6 @@ export default function Scraped_url({ agencyView, agencyClient }) {
       .catch(err => console.log(err));
   }
 
-  useEffect(() => {
-    sources.forEach(link => {
-      setTotalCharacters(totalCharacters => totalCharacters + link.charCount)
-    });
-  }, []);
 
 
   return (
@@ -212,7 +210,7 @@ export default function Scraped_url({ agencyView, agencyClient }) {
       </div>
 
         {
-          selectMode ? <><Human_Ai_select_popup action={sendLinks} /></> : ""
+          selectMode ? <><Human_Ai_select_popup action={sendLinks} closePopup={()=>setselectMode(false)} /></> : ""
         }
     </>
   )

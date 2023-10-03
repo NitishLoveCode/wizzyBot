@@ -60,7 +60,7 @@ export default function Left_sidebar() {
                     <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt="logo" />
                 </div>
                 <div>
-                    <h3>WizzyBot</h3>
+                    <h3>vistabots.ai</h3>
                 </div>
             </div>
             </div>

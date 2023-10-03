@@ -5,7 +5,7 @@ export default function Footer({BiLogoFacebook,AiFillInstagram,BiLogoTwitter}) {
     <>
         <div className="bg-gray-800 sm:hidden items-center justify-center w-full flex pt-3">
         <div className="flex text-white text-2xl items-center justify-center gap-4">
-          <h3>WizzyBot</h3>
+          <h3>Vistabots.ai</h3>
           <div className="w-2 h-2 bg-[#00d1ff] rounded-full"></div>
         </div>
       </div>
@@ -13,7 +13,7 @@ export default function Footer({BiLogoFacebook,AiFillInstagram,BiLogoTwitter}) {
       <div className="sm:px-16 px-3 flex flex-row  sm:flex-row justify-between bg-gray-800 pt-8 pb-3">
         <div className="hidden sm:block">
           <div className="flex text-white gap-4">
-            <h3>WizzyBot</h3>
+            <h3>Vistabots.ai</h3>
             <div className="w-2 h-2 bg-[#00d1ff] rounded-full"></div>
           </div>
         </div>

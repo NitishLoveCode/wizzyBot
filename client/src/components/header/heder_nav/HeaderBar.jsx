@@ -38,7 +38,7 @@ export default function HeaderBar() {
             <Link to={"/Dashboard"}>
             <div className='flex cursor-pointer active:scale-95 items-center'>
                 <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt='logo'/>
-                <h1 className='text-xl sm:text-2xl font-semibold text-gray-700'>WizzyBot</h1>
+                <h1 className='text-xl sm:text-2xl font-semibold text-gray-700'>Vistabots.ai</h1>
             </div>
             </Link>
             <div onClick={()=>headerToggleOn()} className='w-12 h-12 sm:w-16 sm:h-14 my-1 active:scale-95 cursor-pointer rounded-full items-center justify-center'>
