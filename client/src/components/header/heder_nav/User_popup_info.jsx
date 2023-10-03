@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import serverBasePath from '../../../../constants';
 import axios from 'axios';
 
 
+let ran = false;
 export default function User_popup_info() {
 
   function signout() {
@@ -20,20 +21,23 @@ export default function User_popup_info() {
   });
 
 
-  useLayoutEffect(() => {
-    axios.get(serverBasePath + '/my-account', {
-      withCredentials: true
-    })
-      .then(async response => {
-        if (response.status === 200) {
-          setUser(response.data);
-        }
+  useEffect(() => {
+    if (ran === false) {
+      axios.get(serverBasePath + '/my-account', {
+        withCredentials: true
       })
-      .catch(error => {
-        if (error.response && error.response.status === 401) {
-          navigate('/login');
-        }
-      });
+        .then(async response => {
+          if (response.status === 200) {
+            setUser(response.data);
+            ran=true;
+          }
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 401) {
+            navigate('/login');
+          }
+        });
+    }
   }, [])
 
 

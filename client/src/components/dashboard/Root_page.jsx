@@ -18,6 +18,7 @@ import { RiChatHistoryLine } from "react-icons/ri"
 import serverBasePath from '../../../constants'
 import { MdOutlineManageAccounts } from "react-icons/md"
 import SocketContext from '../../SocketContext'
+import axios from 'axios'
 
 
 export default function Root_page({ agencyView }) {
@@ -27,8 +28,29 @@ export default function Root_page({ agencyView }) {
 
     const [messages, setMessages] = useState([]);
     const [botState, setBotState] = useState([]);
+    const [name, setName] = useState('');
 
     useEffect(() => {
+
+
+        axios.get(`${serverBasePath}/getName/${id}`, {
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+            },
+            withCredentials: true
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    setName(response.data.name)
+                }
+            })
+            .catch((err) => toast.error(err.response.data.response !== undefined ? err.response.data.response : err.message));
+    
+
+
+
+
         socket.connect()
         socket.emit('agentConnect', id);
         socket.on('identify', () => {
@@ -142,7 +164,7 @@ export default function Root_page({ agencyView }) {
             }
             <div className='ml-2 mr-2 sm:ml-24 pb-8 sm:mr-24 mt-10 gap-4 flex flex-col'>
                 <div>
-                    <h3 className='text-3xl pl-1 font-bold text-gray-800'>wizzyBot.com</h3>
+                    <h3 className='text-3xl pl-1 font-bold text-gray-800 mb-2'>{name}</h3>
                 </div>
 
                 <div className='flex justify-center border-b pb-3 items-center flex-col w-full'>

@@ -9,7 +9,36 @@ import serverBasePath from '../../../constants'
 import { MdOutlineManageAccounts } from "react-icons/md"
 import toast from 'react-hot-toast';
 
+// -----for driver.js-----------
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+import LoadingDots from '../loading/LoadingDots'
+// -------------
+
 export default function Load_url({ agencyView }) {
+  const [loadingStart, setloadingStart]=useState(false)
+
+  // ---------------for driver.js-------------
+  const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+      { element: '#for_drive_step1', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#for_drive_load_url', popover: { title: 'Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
+      { element: '#for_driver_getall_links', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+      { element: 'you_are ready to go with this step', popover: { title: ' You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
+    ]
+  });
+  useEffect(()=>{
+    setTimeout(()=>{
+      const find_new_user=localStorage.getItem("new_for_load_url")
+      if(find_new_user===null){
+        driverObj.drive();
+        localStorage.setItem("new_for_load_url",true)
+      }
+    },2000)
+  },[])
+  // --------------------------------
 
   const [baseLink, setBaseLink] = useState('');
   // const [sources, setSources] = useState([]);
@@ -17,7 +46,10 @@ export default function Load_url({ agencyView }) {
 
 
   function getLinks() {
-
+    
+    if(baseLink){
+      setloadingStart(true)
+    }
     axios.post(serverBasePath + '/train/website/baseLink', { url: baseLink }, {
       headers: {
         'Content-Type': 'application/json',
@@ -28,6 +60,7 @@ export default function Load_url({ agencyView }) {
       .then((response) => {
         const data = response.data;
         if (data.pagesData !== undefined) {
+          
           data.pagesData.forEach((link, index) => {
             if (link.id === undefined) {
               link.id = index;
@@ -69,18 +102,24 @@ export default function Load_url({ agencyView }) {
       <Source_1_2_card />
       <div className='flex flex-col gap-3 justify-center items-center text-center'>
         <Heading_text text_size={"text-xl sm:text-3xl mt-4 font-bold text-gray-800"} text={"Add a Website as Data Source"} />
-        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for LiveChatAI to crawl and import content."} />
+        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for Vistabots to crawl and import content."} />
         <Heading_text text_size={"text-sm mb-3 text-gray-500"} text={"Use the main domain (e.g., domain.com) to crawl all pages, or specify a sub-path (e.g., domain.com/help/) or subdomain (e.g., docs.domain.com) to limit the content imported. This helps in tailoring the AI bot's training to your specific needs."} />
-        <Input_field
-          name={"url"}
-          placeholder={"https://www.example.com"}
-          style={"border-2 outline-main w-[94vw] sm:w-[45vw] pl-2 h-10 rounded-md"}
-          value={baseLink}
-          setValue={setBaseLink}
-        />
-        <Button style={"bg-gray-800 text-white p-3 pl-7 pr-7 rounded-full active:scale-95"} text={"Save and get all my links"}
-          action={getLinks}
-        />
+        <div id='for_drive_load_url'>
+          <Input_field
+            name={"url"}
+            placeholder={"https://www.example.com"}
+            style={"border-2 outline-main w-[94vw] sm:w-[45vw] pl-2 h-10 rounded-md"}
+            value={baseLink}
+            setValue={setBaseLink}
+          />
+        </div>
+        <div id='for_driver_getall_links'>
+          <Button disabled={loadingStart} style={"bg-gray-800 text-white p-3 px-20 rounded-full active:scale-95"} text={loadingStart ? <LoadingDots size={1} color={'bg-white'}/>:"Get all links"}
+            action={getLinks}
+          />
+        </div>
+
+        
 
         {/* <div className='flex w-full gap-2 justify-center items-center'>
                 <div className='w-[25%] bg-gray-400 h-[1px]'></div>
@@ -94,6 +133,7 @@ export default function Load_url({ agencyView }) {
             <Button style={"bg-gray-800 mb-14 text-white p-3 pl-7 pr-7 rounded-full active:scale-95"} text={"Save and load sitemap"}/> */}
 
       </div>
+      
     </>
   )
 }

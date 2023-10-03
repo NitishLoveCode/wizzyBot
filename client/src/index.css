@@ -9,6 +9,27 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* -----------------animated typing---------------- */
+.typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes typing {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
 

@@ -12,7 +12,36 @@ import LoadingDots from '../../loading/LoadingDots'
 import toast from 'react-hot-toast';
 
 
+// -------------driver.js-----------------
+
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+// -----------------------------------------------
+
 export default function Website() {
+
+// ---------------for driver.js-------------
+const driverObj = driver({
+  showProgress: true,
+  showButtons: ['next', 'previous'],
+  steps: [
+    { element: '#driver_Crawl_a_new_website', popover: { title: 'Step 188: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+    { element: '#driver_Fetch_single_link', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+    { element: '#driver_Add_as_inline_chat', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
+  ]
+});
+useEffect(()=>{
+  setTimeout(()=>{
+    const find_new_user=localStorage.getItem("embed-and-website")
+    if(find_new_user===null){
+      driverObj.drive();
+      localStorage.setItem("embed-and-website",true)
+    }
+  },2000)
+},[])
+// --------------------------------
+
   const [links, editLinks] = useState([]);
   const [singleLink, editSingleLink] = useState('');
   const [baseLink, setBaseLink] = useState('');
@@ -172,7 +201,7 @@ export default function Website() {
           <div className="flex items-center gap-4 flex-col">
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl sm:text-3xl font-bold">Crawl a new website</h3>
-              <div className="flex sm:flex-row flex-col gap-2 items-center">
+              <div id='driver_Crawl_a_new_website' className="flex sm:flex-row flex-col gap-2 items-center">
                 <Input_field
                   placeholder={"https://www.example.com"}
                   style={"border-2 w-[95vw] outline-none rounded-md sm:w-[30vw] h-[6vh] pl-2"}
@@ -227,7 +256,7 @@ export default function Website() {
           <div className='flex flex-col gap-4'>
             <h3 className='text-xl sm:text-3xl font-bold'>Fetch single link</h3>
 
-            <div className='flex flex-col sm:flex-row gap-2 items-center'>
+            <div id='driver_Fetch_single_link'  className='flex flex-col sm:flex-row gap-2 items-center'>
               <Input_field
                 placeholder={"https://www.example.com"}
                 style={"border-2 rounded-md w-[95vw] sm:w-[30vw] h-[6vh] pl-2"}
