@@ -26,12 +26,12 @@ export default function Embed_and_Share() {
   });
   useEffect(()=>{
     setTimeout(()=>{
-      const find_new_user=localStorage.getItem("embed-and-Shar")
+      const find_new_user=localStorage.getItem("embed-and-Share")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("embed-and-Share",true)
       }
-    },2000)
+    },4000)
   },[])
   // --------------------------------
 
