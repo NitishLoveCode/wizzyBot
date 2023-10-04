@@ -217,11 +217,11 @@ export default function Chat_Inbox({ messages, setMessages, botState, setBotStat
         </>
       }
 
-      <div className='mt-2 sm:mt-4 flex sm:flex-row flex-col gap-2'>
+      {/* <div className='mt-2 sm:mt-4 flex sm:flex-row flex-col gap-2'>
         <div className='w-full sm:w-[28vw] border-[1px] p-1 h-[80vh]'>
           <div className='bg-gray-100 mb-2 rounded-3xl flex items-center'>
             <input className='w-full bg-transparent h-10 outline-none px-2' placeholder='Search' type="text" name="search" id="" />
-          </div>
+          </div> */}
 
 
       {messages.length > 0 &&
@@ -309,7 +309,7 @@ export default function Chat_Inbox({ messages, setMessages, botState, setBotStat
         </>
       }
     </div>
-    </div>
-    </div>
+    // </div>
+    // </div>
   )
 }

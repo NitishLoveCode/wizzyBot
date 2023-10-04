@@ -23,8 +23,8 @@ const driverObj = driver({
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_Add_new_text_conten', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '.driver_Add_new_content', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+      { element: '#driver_Add_new_text_conten', popover: { title: 'Train you Bot with Content', description: 'Add new content to train you bot', side: "left", align: 'start' }},
+      { element: '.driver_Add_new_content', popover: { title: 'Click here to Add content', description: '', side: "left", align: 'start' }},
     ]
   });
   useEffect(()=>{
@@ -34,7 +34,7 @@ const driverObj = driver({
         driverObj.drive();
         localStorage.setItem("embed-and-text",true)
       }
-    },2000)
+    },7000)
   },[])
   // --------------------------------
 

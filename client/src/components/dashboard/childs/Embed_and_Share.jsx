@@ -19,9 +19,9 @@ export default function Embed_and_Share() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_add_as_message', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#driver_share_as_full_chat', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
-      { element: '#driver_Add_as_inline_chat', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
+      { element: '#driver_add_as_message', popover: { title: 'To Add a floating button to specific pages', description: 'Following code snippet into the head section or place it anywhere on the page', side: "left", align: 'start' }},
+      { element: '#driver_share_as_full_chat', popover: { title: 'You Can Share as Full Page Chat', description: '', side: "left", align: 'start' }},
+      { element: '#driver_Add_as_inline_chat', popover: { title: 'Add as Inline Chat ', description: 'Paste (embed) this code snippet where you want to display', side: "bottom", align: 'start' }},
     ]
   });
   useEffect(()=>{
@@ -31,7 +31,7 @@ export default function Embed_and_Share() {
         driverObj.drive();
         localStorage.setItem("embed-and-Share",true)
       }
-    },2000)
+    },4000)
   },[])
   // --------------------------------
 

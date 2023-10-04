@@ -7,6 +7,7 @@ import "driver.js/dist/driver.css";
 import { redirect } from 'react-router-dom';
 import LoadingDots from '../../loading/LoadingDots';
 import logo from '../../../assets/logo.png';
+import boncyimg from "../../../assets/logotrans.png"
 
 // -----------------------------------------------
 
@@ -84,8 +85,12 @@ export default function Human_Ai_select_popup({ action, closePopup }) {
           <div className='flex z-30 absolute flex-col w-full h-full items-center p-5'>
             {/* ... Your content ... */}
             {/* -------------top animation code here------------------ */}
-            <div className='w-40 h-24 bg-gray-200'>
-              <p>Header animation will take a longer time, we i'll do it later on.</p>
+            <div className='w-40 h-24'>
+            <img
+                  src={boncyimg}
+                  alt="bouncy logo"
+                  className="animate-bounce w-28 md:ml-8"
+                />
             </div>
             {/* --------------animation code end here------------------------ */}
             <div className='flex text-xl flex-col justify-center items-center'>

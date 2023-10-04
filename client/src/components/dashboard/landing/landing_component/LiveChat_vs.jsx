@@ -6,14 +6,14 @@ export default function ({AiFillCheckCircle}) {
     <div className="px-2 sm:px-10 my-10 py-6 bg-[#f6f4f2]">
         <div className="flex items-center justify-center">
           <h3 className="text-3xl sm:text-5xl">
-            What sets LiveChatAI apart from the rest
+            What sets Vistabots apart from the rest
           </h3>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 relative">
           <div className=" sm:w-[45vw] border-b-8 rounded-3xl border-gray-800">
             <div className="border-l-2 bg-white border-t-2 border-r-8 mt-8 border-gray-700 p-5 px-10 rounded-2xl">
-              <h3 className="text-4xl mb-2">LiveChatAI</h3>
+              <h3 className="text-4xl mb-2">Vistabots</h3>
               <h3 className="text-2xl font-bold">Features Included</h3>
 
               <div className="flex items-center gap-1 mt-5 mb-2">
@@ -52,7 +52,7 @@ export default function ({AiFillCheckCircle}) {
               className="border-l-2 bg-white border-t-2 border-r-8 mt-2 sm:mt-8 border-gray-700 
                      p-5 px-10 rounded-2xl"
             >
-              <h3 className="text-4xl mb-2">LiveChatAI</h3>
+              <h3 className="text-4xl mb-2">Vistabots</h3>
               <h3 className="text-2xl font-bold">Features Included</h3>
 
               <div className="flex items-center gap-1 mt-5 mb-2">
