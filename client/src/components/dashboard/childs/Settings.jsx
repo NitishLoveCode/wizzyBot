@@ -34,7 +34,7 @@ export default function Settings() {
 
   useEffect(()=>{
     setTimeout(()=>{
-      const find_new_user=localStorage.getItem("new_for_settin")
+      const find_new_user=localStorage.getItem("new_for_setting")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("new_for_setting",true)
