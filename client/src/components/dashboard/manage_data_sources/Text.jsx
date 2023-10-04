@@ -34,7 +34,7 @@ const driverObj = driver({
         driverObj.drive();
         localStorage.setItem("embed-and-text",true)
       }
-    },6000)
+    },7000)
   },[])
   // --------------------------------
 

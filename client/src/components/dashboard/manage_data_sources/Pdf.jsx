@@ -31,7 +31,7 @@ export default function Pdf() {
         driverObj.drive();
         localStorage.setItem("embed-and-pdf",true)
       }
-    },6000)
+    },7000)
   },[])
   // --------------------------------
 
