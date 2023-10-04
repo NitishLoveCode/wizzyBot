@@ -8,8 +8,8 @@ export default function Scraped_link({ link, data, id, deleteAction}) {
                 <div className='sm:w-[30vw]'>
                     <input className='border-2 outline-none rounded-md w-full sm:w-[28vw] text-gray-600 h-10 pl-2' type="text" name="links" value={link} />
                 </div>
-                <div className='flex items-center gap-2 w-auto'>
-                    <div>
+                <div className='flex items-center gap-2 '>
+                    <div className='w-16'>
                         <h3>{data}</h3>
                     </div>
                     <div onClick={() => {deleteAction(id) }}>
