@@ -21,12 +21,12 @@ export default function Pdf() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_Import_PDF_Content', popover: { title: 'You can train Bot with PDF', description: 'You can train your bot with PDF content.', side: "left", align: 'start' }},
+      { element: '#driver_Import_PDF_Content', popover: { title: 'Train Bot with PDF', description: 'You can train your bot with PDF content.', side: "left", align: 'start' }},
     ]
   });
   useEffect(()=>{
     setTimeout(()=>{
-      const find_new_user=localStorage.getItem("embed-and-pd")
+      const find_new_user=localStorage.getItem("embed-and-pdf")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("embed-and-pdf",true)
