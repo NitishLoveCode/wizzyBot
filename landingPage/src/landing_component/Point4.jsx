@@ -14,7 +14,7 @@ export default function Point4({AiFillCheckCircle}) {
         <div className="sm:w-[50vw] mt-8">
           <h1 className="text-3xl sm:text-5xl">Human support</h1>
           <h3 className="mt-3 mx-3 sm:mx-10 text-xl">
-            LiveChatAI can triage complex problems and seamlessly pass them to
+            Vistabots can triage complex problems and seamlessly pass them to
             your human support teams.
           </h3>
         </div>
@@ -48,13 +48,13 @@ export default function Point4({AiFillCheckCircle}) {
             </div>
             <div className="sm:mt-12 mt-20 text-xl">
               <h3>
-                LiveChatAI breaks down language barriers by supporting 95
+                Vistabots breaks down language barriers by supporting 95
                 different languages, ensuring seamless communication across
                 diverse audiences.
               </h3>
               <h3 className="mt-4">
                 Whether you're using our chat messenger, inline embedding, full
-                page, or even our flexible API, LiveChatAI is designed to work
+                page, or even our flexible API, Vistabots is designed to work
                 effortlessly on any platform, anywhere
               </h3>
             </div>

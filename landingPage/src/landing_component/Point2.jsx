@@ -79,10 +79,10 @@ export default function Point2({AiFillCheckCircle}) {
           </div>
           <div className="mt-4">
             <h3 className="text-xl">
-              Integrating LiveChatAI into our customer success strategy was one
+              Integrating Vistabots into our customer success strategy was one
               of the best decisions we've made. Our customers appreciate the
               quick responses, and our human support staff can now focus on more
-              complex customer needs. LiveChatAI didn't just meet our
+              complex customer needs. Vistabots didn't just meet our
               expectations – it exceeded them
             </h3>
           </div>
