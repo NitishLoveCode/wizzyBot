@@ -21,17 +21,17 @@ export default function Pdf() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_Import_PDF_Content', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#driver_Import_PDF_Content', popover: { title: 'You can train Bot with PDF', description: 'You can train your bot with PDF content.', side: "left", align: 'start' }},
     ]
   });
   useEffect(()=>{
     setTimeout(()=>{
-      const find_new_user=localStorage.getItem("embed-and-pdf")
+      const find_new_user=localStorage.getItem("embed-and-pd")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("embed-and-pdf",true)
       }
-    },2000)
+    },6000)
   },[])
   // --------------------------------
 
