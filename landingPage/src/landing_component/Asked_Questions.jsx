@@ -12,7 +12,7 @@ export default function Asked_Questions({IoIosArrowUp,IoIosArrowDown,openQuestio
         <div className="shadow-sm p-2 sm:p-6  shadow-gray-300 rounded-xl">
           <div className="flex justify-between w-[90vw] sm:w-[70vw]">
             <h3 className="sm:text-2xl text-xl font-bold">
-              What is LiveChatAI?
+              What is Vistabots?
             </h3>
             <button
               onClick={() => openQuestion(1)}
@@ -35,11 +35,11 @@ export default function Asked_Questions({IoIosArrowUp,IoIosArrowDown,openQuestio
             }`}
           >
             <h3 className="text-xl">
-              Introducing LiveChatAI, your ultimate AI bot architect. Harnessing
+              Introducing Vistabots, your ultimate AI bot architect. Harnessing
               the capabilities of ChatGPT, it tailors your data into an
               interactive chat widget for your website. Simply upload a document
               or include a link to your site, and behold a chatbot ready to
-              address any inquiries related to its content. With LiveChatAI,
+              address any inquiries related to its content. With Vistabots,
               turn your information into an engaging conversation
             </h3>
           </div>
@@ -102,11 +102,11 @@ export default function Asked_Questions({IoIosArrowUp,IoIosArrowDown,openQuestio
             }`}
           >
             <h3 className="text-xl">
-              Introducing LiveChatAI, your ultimate AI bot architect. Harnessing
+              Introducing Vistabots, your ultimate AI bot architect. Harnessing
               the capabilities of ChatGPT, it tailors your data into an
               interactive chat widget for your website. Simply upload a document
               or include a link to your site, and behold a chatbot ready to
-              address any inquiries related to its content. With LiveChatAI,
+              address any inquiries related to its content. With Vistabots,
               turn your information into an engaging conversation
             </h3>
           </div>
@@ -139,11 +139,11 @@ export default function Asked_Questions({IoIosArrowUp,IoIosArrowDown,openQuestio
             }`}
           >
             <h3 className="text-xl">
-              Introducing LiveChatAI, your ultimate AI bot architect. Harnessing
+              Introducing Vistabots, your ultimate AI bot architect. Harnessing
               the capabilities of ChatGPT, it tailors your data into an
               interactive chat widget for your website. Simply upload a document
               or include a link to your site, and behold a chatbot ready to
-              address any inquiries related to its content. With LiveChatAI,
+              address any inquiries related to its content. With Vistabots,
               turn your information into an engaging conversation
             </h3>
           </div>

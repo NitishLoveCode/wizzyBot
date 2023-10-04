@@ -9,7 +9,7 @@ export default function Setup_guide({BsArrowRightCircle,AiFillCheckCircle}) {
             Train AI and create your GPT-powered live chat in minutes.
           </h3>
           <p>
-            Empower your customer support with LiveChatAI. Quickly train your AI
+            Empower your customer support with Vistabots. Quickly train your AI
             with specific content, and launch a GPT-powered live chat in just
             minutes. Enhance customer interactions with responsive and precise
             assistance, all at your fingertips.
