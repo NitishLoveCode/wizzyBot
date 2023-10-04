@@ -51,11 +51,14 @@ export default function Scraped_url({ agencyView, agencyClient }) {
   // -----------Human and AI bot popup-----------------
   const [selectMode, setselectMode] = useState(false)
   const location = useLocation();
-  const [sources, setSources] = useState(location.state.sources);
-  const [totalCharacters, setTotalCharacters] = useState(0);
   const navigate = useNavigate();
+  const [sources, setSources] = useState([]);
+  const [totalCharacters, setTotalCharacters] = useState(0);
+
+
 
   useEffect(() => {
+
     axios.get(serverBasePath + '/auth/isAuthenticated', {
       headers: {
         'content-type': 'application/json',
@@ -66,6 +69,17 @@ export default function Scraped_url({ agencyView, agencyClient }) {
       .then((response) => {
         if (response.data.authenticated === false) {
           navigate('/login')
+        }
+        else{
+          if (location.state !== null) {
+            setSources(location.state.sources);
+            location.state.sources.forEach(link => {
+              setTotalCharacters(totalCharacters => totalCharacters + link.charCount)
+            });
+          }
+          else {
+            navigate('/load-url');
+          }
         }
       })
       .catch((err) => console.log(err));
@@ -132,17 +146,12 @@ export default function Scraped_url({ agencyView, agencyClient }) {
         const data = response.data;
 
         if (data.links !== undefined && response.status !== 400) {
-          navigate(agencyView ? `client-dashboard/${agencyClient.id}` :'/Dashboard');
+          navigate(agencyView ? `client-dashboard/${agencyClient.id}` : '/Dashboard');
         }
       })
       .catch(err => console.log(err));
   }
 
-  useEffect(() => {
-    sources.forEach(link => {
-      setTotalCharacters(totalCharacters => totalCharacters + link.charCount)
-    });
-  }, []);
 
 
   return (
@@ -201,7 +210,7 @@ export default function Scraped_url({ agencyView, agencyClient }) {
       </div>
 
         {
-          selectMode ? <><Human_Ai_select_popup action={sendLinks} /></> : ""
+          selectMode ? <><Human_Ai_select_popup action={sendLinks} closePopup={()=>setselectMode(false)} /></> : ""
         }
     </>
   )

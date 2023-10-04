@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 // -----for driver.js-----------
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
-import Loading from '../loading/Loading'
+import LoadingDots from '../loading/LoadingDots'
 // -------------
 
 export default function Load_url({ agencyView }) {
@@ -70,8 +70,24 @@ export default function Load_url({ agencyView }) {
           navigate('/scrape', { state: { sources: data.pagesData } })
         }
       })
-      .catch(err => {console.log(err);toast.error(err.response.data.message !== undefined ? err.response.data.message : err.message)});
+      .catch(err => { console.log(err); toast.error(err.response.data.message !== undefined ? err.response.data.message : err.message) });
   }
+
+  useEffect(() => {
+    axios.get(serverBasePath + '/auth/isAuthenticated', {
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      withCredentials: true
+    })
+      .then((response) => {
+        if (response.data.authenticated === false) {
+          navigate('/login')
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
 
   return (
@@ -86,7 +102,7 @@ export default function Load_url({ agencyView }) {
       <Source_1_2_card />
       <div className='flex flex-col gap-3 justify-center items-center text-center'>
         <Heading_text text_size={"text-xl sm:text-3xl mt-4 font-bold text-gray-800"} text={"Add a Website as Data Source"} />
-        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for LiveChatAI to crawl and import content."} />
+        <Heading_text text_size={"text-md text-gray-800"} text={"Add a website as a data source by providing a URL for Vistabots to crawl and import content."} />
         <Heading_text text_size={"text-sm mb-3 text-gray-500"} text={"Use the main domain (e.g., domain.com) to crawl all pages, or specify a sub-path (e.g., domain.com/help/) or subdomain (e.g., docs.domain.com) to limit the content imported. This helps in tailoring the AI bot's training to your specific needs."} />
         <div id='for_drive_load_url'>
           <Input_field
@@ -98,18 +114,11 @@ export default function Load_url({ agencyView }) {
           />
         </div>
         <div id='for_driver_getall_links'>
-          <Button style={"bg-gray-800 text-white p-3 pl-7 pr-7 rounded-full active:scale-95"} text={"Save and get all my links"}
+          <Button disabled={loadingStart} style={"bg-gray-800 text-white p-3 px-20 rounded-full active:scale-95"} text={loadingStart ? <LoadingDots size={1} color={'bg-white'}/>:"Get all links"}
             action={getLinks}
           />
         </div>
-        {
-          loadingStart ? <>
-          <div className='absolute'>
-            <div className='mx-auto w-fit h-fit'>
-              <Loading/>
-            </div>
-          </div></>:<></>
-        }
+
         
 
         {/* <div className='flex w-full gap-2 justify-center items-center'>

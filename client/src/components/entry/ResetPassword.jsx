@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import serverBasePath from '../../../constants';
+import logo from '../../assets/logo.png'
 
 export default function ResetPassword() {
     const [response, setResponse] = useState('');
@@ -13,12 +14,12 @@ export default function ResetPassword() {
 
     function resetPassword() {
         setResponse('');
-        if (password !== confirmPassword){
+        if (password !== confirmPassword) {
             setColor('text-red-500');
             setResponse('Passwords must match!');
             return;
         }
-        if (password.length < 8){
+        if (password.length < 8) {
             setColor('text-red-500');
             setResponse('Passwords must have atleast 8 characters.');
             return;
@@ -54,7 +55,7 @@ export default function ResetPassword() {
         <>
             <div className='flex flex-col mt-[8vh] sm:mt-[15vh] gap-4 items-center justify-center'>
                 <div className='flex flex-col items-center justify-center gap-4'>
-                    <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt="logo" />
+                    <img src={logo} className='w-28 m-10' alt="logo" />
                     <h1 className='text-2xl sm:text-3xl font-bold'>Reset password</h1>
                     <h3 className='text-gray-500'>Reset your password or <span className='font-bold text-main cursor-pointer active:scale-95'><Link to={"/login"}>return to login</Link></span></h3>
                 </div>
