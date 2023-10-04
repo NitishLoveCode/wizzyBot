@@ -19,6 +19,9 @@ export default function Header({ openSideBar, HiMenuAlt2, sideBar }) {
           </div>
 
           <div className="flex items-center gap-2">
+            <div>
+              <img className='w-20' src="https://app.vistabots.ai/assets/logo-eea1fe82.png" alt="site logo" />
+            </div>
             <h3 className="text-xl font-bold">Vistabots.ai</h3>
             <div className="w-2 h-2 bg-[#00d1ff] rounded-full"></div>
           </div>
@@ -28,7 +31,7 @@ export default function Header({ openSideBar, HiMenuAlt2, sideBar }) {
                   flex-col lg:items-center xl:pb-4 absolute lg:static top-[64px] left-0 sm:w-[80vw] md:px-10 md:gap-5 md:pt-5 md:w-[40%] md:h-full  px-10 sm:px-0 h-[92vh]
                   rounded-tr-md rounded-r-md rounded-br-md sm:rounded-none 
                   sm:h-auto pt-14 sm:pt-0 gap-5 sm:gap-24 text-xl sm:text-xl">
-              <div>
+              {/* <div>
                 <h3>Product</h3>
               </div>
               <div>
@@ -39,7 +42,7 @@ export default function Header({ openSideBar, HiMenuAlt2, sideBar }) {
               </div>
               <div>
                 <h3>Resources</h3>
-              </div>
+              </div> */}
             </div>
           </div>
 
