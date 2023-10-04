@@ -29,11 +29,9 @@ export default function Scraped_url({ agencyView, agencyClient }) {
     showButtons: ['next', 'previous'],
     steps: [
       { element: '#for_drive_step2', popover: { title: 'Step 1: Choose page, for supercharge your AI', description: 'Empower your AI journey by choosing the right page. Supercharge your AI', side: "left", align: 'start' }},
-      { element: '#driver_all_url', popover: { title: 'Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
-      { element: '#driver_import_the_content', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
-      { element: '#driver_no_of_pages_we_found', popover: { title: ' You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
-      { element: '#driver_total_characters', popover: { title: ' You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
-      { element: '#driver_create_my_ai', popover: { title: ' You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
+      { element: '#driver_all_url', popover: { title: 'Select pages for train your Bot', description: 'Train Bot with content of your Webpages, you can delete unwanted pages', side: "bottom", align: 'start' }},
+      { element: '#driver_import_the_content', popover: { title: 'Click here to train your personal Bot', description: 'Automatically analiys your content and supercharge your Bot', side: "left", align: 'start' }},
+      
     ]
   });
   useEffect(()=>{

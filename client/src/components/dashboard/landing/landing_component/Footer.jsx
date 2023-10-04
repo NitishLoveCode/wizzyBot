@@ -21,11 +21,11 @@ export default function Footer({BiLogoFacebook,AiFillInstagram,BiLogoTwitter}) {
         {/* <div className=" px-4"> */}
         <div className="flex text-white gap-4 flex-col">
           <h3 className="text-2xl font-bold">More info</h3>
-          <h3>Blog</h3>
+          {/* <h3>Blog</h3>
           <h3>About</h3>
           <h3>Contact</h3>
           <h3>Customers</h3>
-          <h3>Partnership</h3>
+          <h3>Partnership</h3> */}
         </div>
         <div className="flex text-white gap-4 flex-col">
           <h3 className="text-2xl font-bold">Services</h3>

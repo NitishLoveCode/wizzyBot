@@ -20,10 +20,9 @@ export default function Human_Ai_select_popup({ action, closePopup }) {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_Ai_bot', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' } },
-      { element: '#human_support_live_chat', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' } },
-      { element: '#driver_create_my_ai', popover: { title: ' You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' } },
-
+      { element: '#driver_Ai_bot', popover: { title: 'Hurray! Your AI Bot is Now Activated!', description: '', side: "left", align: 'start' } },
+      { element: '#human_support_live_chat', popover: { title: 'Activate Human Support in Live Chat', description: 'Human and Bot Collaborate Seamlessly!', side: "left", align: 'start' } },
+      { element: '#driver_create_my_ai', popover: { title: 'You are Almost Done, click on Create My Ai Bot, Hurry Up!', description: "You're Almost There! Click Create My AI Bot Now – Don't Miss Out!", side: "top", align: 'start' } },
     ]
   });
 

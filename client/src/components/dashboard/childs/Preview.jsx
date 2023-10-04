@@ -19,9 +19,9 @@ export default function Main_chat_box() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#for_drive_try_chat', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_type_your_demo_chat', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_type_your_demo_chat_send', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+      { element: '#for_drive_try_chat', popover: { title: 'Try Your Personal Bot', description: 'Experience the Power of Chat! Asking Any Questions related to your content of webPages', side: "left", align: 'start' }},
+      { element: '#for_drive_type_your_demo_chat', popover: { title: 'Type Your Questions', description: '', side: "left", align: 'start' }},
+      { element: '#for_drive_type_your_demo_chat_send', popover: { title: 'Click here', description: '', side: "left", align: 'start' }},
     ]
   });
   useEffect(()=>{

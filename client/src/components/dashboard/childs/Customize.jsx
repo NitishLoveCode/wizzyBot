@@ -22,12 +22,12 @@ export default function Customize() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_AI_Bot_color', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#driver_Message_color', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
-      { element: '#driver_User_message_color', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
-      { element: '#driver_customize_save', popover: { title: ' 22You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
-      { element: '#driver_customize_reset', popover: { title: ' 11You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
-      { element: '#driver_customize_initial_message', popover: { title: '00 You are Almost Done, Get Ready, Hurry Up!', description: 'you are good to go for the next and final step – get ready!', side: "top", align: 'start' }},
+      { element: '#driver_AI_Bot_color', popover: { title: 'you can customize AI Bot Header Color', description: '', side: "left", align: 'start' }},
+      { element: '#driver_Message_color', popover: { title: 'you can customize Bot Message color', description: '', side: "left", align: 'start' }},
+      { element: '#driver_User_message_color', popover: { title: 'you can customize User message color', description: '', side: "bottom", align: 'start' }},
+      { element: '#driver_customize_save', popover: { title: 'Click here to Save changes', description: '', side: "top", align: 'start' }},
+      { element: '#driver_customize_reset', popover: { title: 'Click here to reset all changes', description: '', side: "top", align: 'start' }},
+      { element: '#driver_customize_initial_message', popover: { title: 'Click here to customize initial message', description: 'when user click on chat, initial message called, Example: Hello, Hi, How can i help you?', side: "top", align: 'start' }},
     ]
   });
   useEffect(()=>{
