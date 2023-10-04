@@ -26,7 +26,7 @@ export default function Q_and_a() {
         showProgress: true,
         showButtons: ['next', 'previous'],
         steps: [
-          { element: '#driver_add_question_answer', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
+          { element: '#driver_add_question_answer', popover: { title: 'Train you Bot with Questions and Answers ', description: '', side: "left", align: 'start' }},
         ]
       });
       useEffect(()=>{
@@ -36,7 +36,7 @@ export default function Q_and_a() {
             driverObj.drive();
             localStorage.setItem("embed-and-q-and-a",true)
           }
-        },2000)
+        },6000)
       },[])
       // --------------------------------
 
