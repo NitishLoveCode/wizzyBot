@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { BsChatRightDotsFill } from "react-icons/bs";
-import { MdVerified } from "react-icons/md";
-import { FaGraduationCap } from "react-icons/fa";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
-import { MdDone } from "react-icons/md";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { BsArrowDownShort } from "react-icons/bs";
 import { BiLogoFacebook } from "react-icons/bi";
 import { AiFillInstagram } from "react-icons/ai";
 import { BiLogoTwitter } from "react-icons/bi";
