@@ -89,7 +89,7 @@ export default function Human_Ai_select_popup({ action, closePopup }) {
             <img
                   src={boncyimg}
                   alt="bouncy logo"
-                  className="animate-spin animate-bounce w-28 md:ml-8"
+                  className="animate-bounce w-28 md:ml-8"
                 />
             </div>
             {/* --------------animation code end here------------------------ */}
