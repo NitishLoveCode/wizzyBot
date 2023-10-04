@@ -61,8 +61,8 @@ export default function Point1({AiFillCheckCircle}) {
           </div>
           <div className="mt-4">
             <h3 className="text-xl sm:text-xl">
-              Implementing LiveChatAI has been a game-changing experience for
-              Popupsmart. Before LiveChatAI, we struggled with overwhelming
+              Implementing Vistabots has been a game-changing experience for
+              Popupsmart. Before Vistabots, we struggled with overwhelming
               support queries and long response times. Now, our AI answers
               resolve an astonishing 82% of queries, allowing our human support
               team to focus on more complex issues. The seamless blend of AI bot

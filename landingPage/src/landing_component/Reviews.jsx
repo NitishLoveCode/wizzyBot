@@ -30,8 +30,8 @@ export default function Reviews({AiTwotoneStar}) {
             </div>
             <div className="mt-4">
               <h3 className="text-xl">
-                Implementing LiveChatAI has been a game-changing experience for
-                Popupsmart. Before LiveChatAI, we struggled with overwhelming
+                Implementing Vistabots has been a game-changing experience for
+                Popupsmart. Before Vistabots, we struggled with overwhelming
                 support queries and long response times. Now, our AI answers
                 resolve an astonishing 82% of queries, allowing our human
                 support team to focus on more complex issues. The seamless blend
@@ -88,7 +88,7 @@ export default function Reviews({AiTwotoneStar}) {
             <div className="mt-4">
               <h3 className="text-xl">
                 As a growing e-commerce business, we needed a solution to handle
-                our increasing customer inquiries. LiveChatAI has been the
+                our increasing customer inquiries. Vistabots has been the
                 perfect answer. Watching it learn and adapt to our business
                 needs has been fantastic. And the analytics? Pure gold! It's
                 given us a whole new perspective on customer interaction.

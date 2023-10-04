@@ -7,7 +7,7 @@ export default function Four_reasons() {
     <div className="sm:my-20 flex flex-col gap-6 items-center relative py-10 sm:py-20 justify-center bg-[#F6F3F2]">
         <div className="flex items-center justify-center">
           <h3 className="text-2xl px-2 sm:px-0 sm:text-4xl">
-            Four reasons LiveChatAI will transform your customer support.
+            Four reasons Vistabots will transform your customer support.
           </h3>
         </div>
         <div className="flex sm:flex-col md:flex-row gap-5 xl:gap-0 flex-col xl:flex-row">
