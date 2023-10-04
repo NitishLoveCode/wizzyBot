@@ -19,10 +19,13 @@ export default function Intro({BsFillArrowUpRightCircleFill}) {
                   trained with your own docs and content.
                 </h3>
               </div>
-              <div className="bg-[#00d1ff] sm:my-0 my-4 h-16 border-r-4 border-gray-800 border-b-4 active:scale-95 cursor-pointer p-2 px-4 rounded-full flex items-center gap-6">
-                <button>Get Started</button>
-                <BsFillArrowUpRightCircleFill className="text-4xl" />
-              </div>
+
+              <a href="https://app.vistabots.ai">
+                <div className="bg-[#00d1ff] sm:my-0 my-4 h-16 border-r-4 border-gray-800 border-b-4 active:scale-95 cursor-pointer p-2 px-4 rounded-full flex items-center gap-6">
+                  <button>Get Started</button>
+                  <BsFillArrowUpRightCircleFill className="text-4xl" />
+                </div>
+              </a>
             </div>
             {/* --------------right image------------- */}
             <div className="relative mt-10">

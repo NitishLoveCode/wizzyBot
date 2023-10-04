@@ -86,7 +86,7 @@ export default function ({AiFillCheckCircle}) {
             </div>
           </div>
 
-          <div className="absolute ml-2 mt-3 sm:mt-0 sm:ml-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-20 w-16 sm:h-20 h-16 bg-[#00d1ff] rounded-full flex items-center justify-center">
+          <div className="absolute mt-3 sm:mt-0 md:mr-36 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-20 w-16 sm:h-20 h-16 bg-[#00d1ff] rounded-full flex items-center justify-center">
             <div className="sm:w-14 w-10 sm:h-14 h-10 bg-black text-white rounded-full flex items-center justify-center">
               <h3 className="text-2xl">VS</h3>
             </div>
