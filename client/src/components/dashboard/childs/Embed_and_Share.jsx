@@ -59,7 +59,7 @@ export default function Embed_and_Share() {
 
         <div className='w-full'>
           <h3 className='text-2xl mb-4'>Share as Full Page Chat</h3>
-          <h3 className='text-justify'>You can share LiveChatAI with your desired visitor via this link.</h3>
+          <h3 className='text-justify'>You can share your chatbot with your desired visitor via this link.</h3>
         </div>
         <div id='driver_share_as_full_chat' className='flex sm:flex-row flex-col gap-8 justify-between'>
           <div className='w-[60vw] items-center flex rounded-md h-[30vh] bg-gray-900'>
@@ -76,7 +76,7 @@ export default function Embed_and_Share() {
 
         <div className='w-full'>
           <h3 className='text-2xl mb-4'>Add as Inline Chat (Embed within a webpage.)</h3>
-          <h3 className='text-justify'>Paste (embed) this code snippet where you want to display your LiveChatAI within a specific webpage.</h3>
+          <h3 className='text-justify'>Paste (embed) this code snippet where you want to display your chatbot within a specific webpage.</h3>
         </div>
         <div id='driver_Add_as_inline_chat' className='flex sm:flex-row flex-col gap-8 justify-between'>
           <div className='w-[60vw] items-center flex rounded-md h-[30vh] bg-gray-900'>

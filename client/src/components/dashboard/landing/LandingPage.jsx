@@ -84,7 +84,7 @@ export default function LandingPage() {
   backgroundImage: "url('/vector-141.svg')",
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top right', // Adjust this property to right-align the background image
-  backgroundSize: 'contain',
+  // backgroundSize: 'contain',
   backgroundSize: '30%',
     
   };

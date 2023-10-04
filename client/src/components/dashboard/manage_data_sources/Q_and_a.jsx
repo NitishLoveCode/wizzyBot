@@ -91,6 +91,7 @@ export default function Q_and_a() {
             },
         })
             .then(response => {
+                setQA([]);
                 setQA(response.data.questionAnswers);
                 setLoaded(true);
             })
@@ -99,7 +100,7 @@ export default function Q_and_a() {
             });
     }
 
-    function sendQuestions(questions) {
+    function sendQuestions(questions, setClicked) {
         axios.post(serverBasePath + '/train/addQuestions', { QA: questions, chatbotId: id }, {
             headers: {
                 'content-type': 'application/json',
@@ -112,6 +113,9 @@ export default function Q_and_a() {
                 // setResMessage(response.data.response);
                 if (response.status === 200) {
                     getQuestions();
+                    if (setClicked !== undefined){
+                        setClicked(false);
+                    }
                 }
 
             })
@@ -119,7 +123,6 @@ export default function Q_and_a() {
     }
 
     function deleteQuestion(itemId) {
-        setClicked(itemId);
         const QAToRemove = QA.filter(question => question.id === id);
         if (QAToRemove.new !== true) {
             axios.delete(`${serverBasePath}/train/deleteQuestions`, {
@@ -132,7 +135,6 @@ export default function Q_and_a() {
                 .then(function (response) {
                     if (response.status === 200) {
                         getQuestions();
-                        setClicked('');
                     }
                 })
                 .catch(function (error) {
@@ -154,7 +156,7 @@ export default function Q_and_a() {
                     <div className='sm:w-[50vw] w-[95vw]'>
                         <div className='flex flex-col gap-4 mb-6'>
                             <h3 className='text-2xl font-bold'>Questions and Answers</h3>
-                            <h3>Add or select suggested questions by AI for your chatbot</h3>
+                            <h3>You can add specific answers to questions here.</h3>
                         </div>
 
                         {/* ----------------add questions button------------- */}
@@ -173,7 +175,7 @@ export default function Q_and_a() {
 
                         {/* -----------------------create new questions and answers--------- */}
                         {
-                            add_new_question ? <QuestionForm sendQuestions={sendQuestions} /> : ""
+                            add_new_question ? <QuestionForm sendQuestions={sendQuestions} key={1} /> : ""
                         }
 
 
@@ -187,7 +189,7 @@ export default function Q_and_a() {
                             <>
                                 {
                                     QA.map((cur) => {
-                                        return <Saved_question cur={cur} deleteQuestion={deleteQuestion} />
+                                        return <Saved_question cur={cur} deleteQuestion={deleteQuestion} sendQuestion={sendQuestions} key={cur.id} />
                                     })
 
                                 }
@@ -200,8 +202,7 @@ export default function Q_and_a() {
                             < div className='flex items-center justify-center mt-6'>
                                 <div className='flex gap-2 flex-col items-center justify-center'>
                                     <BsDatabase className='text-4xl' />
-                                    <h3>No item</h3>
-                                    <h3>There are no items in the library.</h3>
+                                    <h3>You haven't added any Question Answers yet.</h3>
                                 </div>
                             </div>
                         }

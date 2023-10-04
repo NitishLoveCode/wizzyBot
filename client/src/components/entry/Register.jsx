@@ -4,6 +4,7 @@ import Button from '../shared_components/Button'
 import axios from 'axios';
 import serverBasePath from '../../../constants';
 import { FcGoogle } from "react-icons/fc";
+import logo from '../../assets/logo.png';
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -53,7 +54,7 @@ export default function Register() {
             <div className='w-screen p-2 sm:p-0 mb-2 sm:mb-0 sm:pt-8 flex flex-col items-center h-screen bg-slate-50'>
                 <div className='flex flex-col gap-1 mb-4 justify-center text-center items-center'>
                     <div>
-                        <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt='logo' />
+                        <img src={logo} className='w-28 m-10' alt="logo" />
                     </div>
                     <div className='flex flex-col gap-2'>
                         <h1 className='text-xl sm:text-4xl font-semibold'>Create a free account</h1>

@@ -19,7 +19,7 @@ export default function Header({openSideBar,HiMenuAlt2,sideBar}) {
             </div>
 
             <div className="flex items-center gap-2">
-              <h3 className="text-xl font-bold">WizzyBot</h3>
+              <h3 className="text-xl font-bold">Vistabots.ai</h3>
               <div className="w-2 h-2 bg-[#00d1ff] rounded-full"></div>
             </div>
 

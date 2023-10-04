@@ -4,6 +4,7 @@ import Button from '../shared_components/Button'
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import serverBasePath from '../../../constants';
+import logo from '../../assets/logo.png';
 
 
 export default function Login() {
@@ -47,7 +48,7 @@ export default function Login() {
             <div className='w-screen p-2 pt-2 sm:pt-8 flex flex-col items-center h-screen bg-slate-50'>
                 <div className='flex flex-col gap-1 mb-4 justify-center text-center items-center'>
                     <div>
-                        <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt='logo' />
+                        <img src={logo} className='w-28 m-10' alt="logo" />
                     </div>
                     <div className='flex flex-col gap-2'>
                         <h1 className='text-xl sm:text-4xl font-semibold'>Sign in to your account</h1>

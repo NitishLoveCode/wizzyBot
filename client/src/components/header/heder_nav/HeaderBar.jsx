@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import serverBasePath from '../../../../constants';
 import {BiSolidUserCircle} from 'react-icons/bi';
 import axios from 'axios';
+import logo from '../../../assets/logo.png'
+
 
 export default function HeaderBar() {
   const [userInfoToggle, setuserInfoToggle]=useState(false)
@@ -34,11 +36,11 @@ export default function HeaderBar() {
   return (
     <>
       <div className='relative '>
-        <div className='flex justify-between sm:pl-10 sm:pr-10 mb-8 shadow-md p-1'>
+        <div className='flex justify-between items-center sm:pl-10 sm:pr-10 mb-8 shadow-md p-3'>
             <Link to={"/Dashboard"}>
             <div className='flex cursor-pointer active:scale-95 items-center'>
-                <img src="https://app.livechatai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.99eba397.png&w=48&q=75" alt='logo'/>
-                <h1 className='text-xl sm:text-2xl font-semibold text-gray-700'>WizzyBot</h1>
+                <img src={logo} alt='logo' className='w-20 mr-5'/>
+                <h1 className='text-xl sm:text-2xl font-semibold text-gray-700'>Vistabots.ai</h1>
             </div>
             </Link>
             <div onClick={()=>headerToggleOn()} className='w-12 h-12 sm:w-16 sm:h-14 my-1 active:scale-95 cursor-pointer rounded-full items-center justify-center'>

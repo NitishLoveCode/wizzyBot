@@ -207,7 +207,7 @@ export default function Settings() {
                                                                 onChange={(evt) => { handleChange('basePrompt', evt) }}
                                                             />
                                                         </div>
-                                                        <h3 className='text-[13px]'>Changing the AI base prompt is an advanced setting. If you do not know about AI profiles, do not exchange them. As LiveChatAI, we have already prepared the base prompt for you in the most ideal way.</h3>
+                                                        <h3 className='text-[13px]'>Changing the AI base prompt is an advanced setting. If you do not know about AI profiles, do not exchange them. As Vistabots.ai, we have already prepared the base prompt for you in the most ideal way.</h3>
                                                     </div>
 
                                                     <div className='flex flex-col gap-2'>
