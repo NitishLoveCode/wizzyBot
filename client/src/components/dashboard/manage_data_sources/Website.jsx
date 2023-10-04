@@ -37,7 +37,7 @@ useEffect(()=>{
       driverObj.drive();
       localStorage.setItem("embed-and-website",true)
     }
-  },5000)
+  },6000)
 },[])
 // --------------------------------
 
