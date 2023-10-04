@@ -14,19 +14,22 @@ import "driver.js/dist/driver.css";
 // -------------
 
 export default function Settings() {
+    const [ai_profile, setai_profile] = useState(false);
+    const [human_support, sethuman_support] = useState(true);
+    const [response, setResponse] = useState(false);
 
     // ---------------for driver.js-------------
   const driverObj = driver({
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#for_drive_ai_bot_name', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_base_prompt', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_gpt_model', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_Temperature', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_access_mode', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#for_drive_cencel_setting', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-    ]
+        { element: '#for_drive_ai_bot_name', popover: { title: 'Your Bot name here.', description: 'You can rename you Bot name.', side: "left", align: 'start' }},
+        { element: '#for_drive_base_prompt', popover: { title: 'Your base prompt here.', description: 'You can customize base prompt bot will react accordenly', side: "left", align: 'start' }},
+        { element: '#for_drive_gpt_model', popover: { title: 'You can select GPT Model', description: '', side: "left", align: 'start' }},
+        { element: '#for_drive_Temperature', popover: { title: 'Adjust the temperature to fine-tune', description: "Adjust the temperature to fine-tune the balance between creativity and coherence in the AI's responses.", side: "left", align: 'start' }},
+        { element: '#for_drive_access_mode', popover: { title: 'You can change accessed mode', description: 'private Chatbot can only be accessed from your account.', side: "left", align: 'start' }},
+        { element: '#for_drive_cencel_setting', popover: { title: 'Click here to save all changes.', description: '', side: "left", align: 'start' }},
+      ]
   });
 
   useEffect(()=>{
@@ -36,13 +39,11 @@ export default function Settings() {
         driverObj.drive();
         localStorage.setItem("new_for_setting",true)
       }
-    },2000)
-  },[])
+    },4000)
+  },response)
   // --------------------------------
 
-    const [ai_profile, setai_profile] = useState(false);
-    const [human_support, sethuman_support] = useState(true);
-    const [response, setResponse] = useState(false);
+    
     const [settings, setSettings] = useState({
         name: "",
         basePrompt: "",

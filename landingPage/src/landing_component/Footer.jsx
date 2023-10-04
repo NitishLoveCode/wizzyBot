@@ -12,7 +12,8 @@ export default function Footer({BiLogoFacebook,AiFillInstagram,BiLogoTwitter}) {
 
       <div className="sm:px-16 px-3 flex flex-row  sm:flex-row justify-between bg-gray-800 pt-8 pb-3">
         <div className="hidden sm:block">
-          <div className="flex text-white gap-4">
+          <div className="flex text-white items-center gap-4">
+            <img className='w-20' src="https://app.vistabots.ai/assets/logo-eea1fe82.png" alt="site logo" />
             <h3>Vistabots.ai</h3>
             <div className="w-2 h-2 bg-[#00d1ff] rounded-full"></div>
           </div>

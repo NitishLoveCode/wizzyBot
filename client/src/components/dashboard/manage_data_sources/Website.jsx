@@ -26,9 +26,8 @@ const driverObj = driver({
   showProgress: true,
   showButtons: ['next', 'previous'],
   steps: [
-    { element: '#driver_Crawl_a_new_website', popover: { title: 'Step 188: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-    { element: '#driver_Fetch_single_link', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
-    { element: '#driver_Add_as_inline_chat', popover: { title: '33Your Root Domain here.', description: 'Add the Root Domain to gather content & Supercharge Your Chatbot Training.', side: "bottom", align: 'start' }},
+    { element: '#driver_Crawl_a_new_website', popover: { title: 'You can crawl you website here', description: 'If you have added new pages you can crawl its content for Train you chat Bot', side: "left", align: 'start' }},
+    { element: '#driver_Fetch_single_link', popover: { title: 'Add content from new link', description: 'Train your bot with new page URL', side: "left", align: 'start' }},
   ]
 });
 useEffect(()=>{
@@ -38,7 +37,7 @@ useEffect(()=>{
       driverObj.drive();
       localStorage.setItem("embed-and-website",true)
     }
-  },2000)
+  },9000)
 },[])
 // --------------------------------
 
