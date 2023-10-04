@@ -24,8 +24,8 @@ export default function messageHistory() {
     showProgress: true,
     showButtons: ['next', 'previous'],
     steps: [
-      { element: '#driver_choose_date', popover: { title: 'Step 1: Add the Root Domain', description: 'Step 1: Add the URL to gather content and train your chatbot.', side: "left", align: 'start' }},
-      { element: '#driver_Export_Filtered_Converations', popover: { title: 'Click to Fetch all Links', description: 'After adding your root domain, simply click Save to gather all the links!', side: "left", align: 'start' }},
+      { element: '#driver_choose_date', popover: { title: 'You can Select Date for Message History.', description: '', side: "left", align: 'start' }},
+      { element: '#driver_Export_Filtered_Converations', popover: { title: 'You can Export Filtered Converations.', description: '', side: "left", align: 'start' }},
     ]
   });
   useEffect(()=>{
@@ -35,7 +35,7 @@ export default function messageHistory() {
         driverObj.drive();
         localStorage.setItem("embed-and-messageHistory",true)
       }
-    },2000)
+    },6000)
   },[])
   // --------------------------------
 
