@@ -30,11 +30,18 @@ export default function messageHistory() {
   });
   useEffect(()=>{
     setTimeout(()=>{
+
+      const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
+
       const find_new_user=localStorage.getItem("embed-and-messageHistory")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("embed-and-messageHistory",true)
       }
+
+    }
+
     },6000)
   },[])
   // --------------------------------

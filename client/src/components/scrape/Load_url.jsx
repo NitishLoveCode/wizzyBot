@@ -31,12 +31,18 @@ export default function Load_url({ agencyView }) {
   });
   useEffect(()=>{
     setTimeout(()=>{
-      const find_new_user=localStorage.getItem("new_for_load_url")
-      if(find_new_user===null){
-        driverObj.drive();
-        localStorage.setItem("new_for_load_url",true)
+      const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
+
+        const find_new_user=localStorage.getItem("new_for_load_url")
+        if(find_new_user===null){
+          driverObj.drive();
+          localStorage.setItem("new_for_load_url",true)
+        }
+        
       }
-    },2000)
+      
+    },3000)
   },[])
   // --------------------------------
 

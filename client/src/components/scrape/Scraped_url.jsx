@@ -36,11 +36,19 @@ export default function Scraped_url({ agencyView, agencyClient }) {
   });
   useEffect(()=>{
     setTimeout(()=>{
+
+      const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
+
       const find_new_user=localStorage.getItem("new_for_scraped_url")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("new_for_scraped_url",true)
       }
+
+    }
+
+
     },2000)
   },[])
   // --------------------------------
@@ -144,7 +152,7 @@ export default function Scraped_url({ agencyView, agencyClient }) {
         const data = response.data;
 
         if (data.links !== undefined && response.status !== 400) {
-          navigate(agencyView ? `client-dashboard/${agencyClient.id}` : '/Dashboard');
+          navigate(agencyView ? `client-dashboard/${agencyClient.id}` : `/chatbot/settings/${chatbotId}`);
         }
       })
       .catch(err => console.log(err));

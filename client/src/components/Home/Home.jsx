@@ -75,6 +75,9 @@ export default function Home({ agencyClient }) {
                     setChatbots(newChatBots);
                     setAllowedChatbots(response.data.allowedChatbots)
                     setLoading(false);
+                    // ------------saving status of user Account, if there is any bots in Account
+                    // then driver.js will not goona to drive user else drive------------- 
+                    localStorage.setItem("Bot_available",true)
                 }
                 else {
                     navigate('/load-url')

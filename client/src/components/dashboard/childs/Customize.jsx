@@ -32,11 +32,17 @@ export default function Customize() {
   });
   useEffect(()=>{
     setTimeout(()=>{
+
+      const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
+
       const find_new_user=localStorage.getItem("new_for_customize")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("new_for_customize",true)
       }
+
+    }
     },2000)
   },[])
   // --------------------------------

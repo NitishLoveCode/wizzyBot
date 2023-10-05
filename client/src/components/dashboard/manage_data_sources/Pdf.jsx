@@ -26,11 +26,15 @@ export default function Pdf() {
   });
   useEffect(()=>{
     setTimeout(()=>{
+
+        const Bot_available=localStorage.getItem("Bot_available")
+        if(Bot_available==null){
       const find_new_user=localStorage.getItem("embed-and-pdf")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("embed-and-pdf",true)
       }
+    }
     },7000)
   },[])
   // --------------------------------

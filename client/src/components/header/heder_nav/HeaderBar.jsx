@@ -32,6 +32,27 @@ export default function HeaderBar() {
     getUser();
   }, []);
 
+  // ---------------------reset tour----------------
+
+  // Call the function to remove items
+const keysToRemove = [
+  "Bot_available",
+  "new_for_setting",
+  "new_for_preview",
+  "new_for_customize",
+  "embed-and-Share",
+  "embed-and-messageHistory",
+  "embed-and-website",
+  "embed-and-text",
+  "embed-and-pdf",
+  "embed-and-q-and-a"
+];
+
+  function removeItemsFromLocalStorage(keys) {
+    keys.forEach((key) => {
+      localStorage.removeItem(key);
+    });
+  }
 
   return (
     <>
@@ -43,9 +64,19 @@ export default function HeaderBar() {
                 <h1 className='text-xl sm:text-2xl font-semibold text-gray-700'>Vistabots.ai</h1>
             </div>
             </Link>
-            <div onClick={()=>headerToggleOn()} className='w-12 h-12 sm:w-16 sm:h-14 my-1 active:scale-95 cursor-pointer rounded-full items-center justify-center'>
-                
-                {userImage !== null && userImage.imagePath !== undefined ? <img className='w-12 h-12 sm:w-16 sm:h-16 rounded-full' src={userImage.imagePath} alt="user1" /> : <BiSolidUserCircle size={'110%'} className='text-main'/>}
+            <div className='flex items-center justify-center'>
+              <div onClick={()=>removeItemsFromLocalStorage(keysToRemove)} className='flex flex-col items-center justify-center'>
+                  <div className='flex items-center justify-center cursor-pointer active:scale-95 border-[1px] border-gray-400 rounded-full h-5 w-5'>
+                    <h4>?</h4>
+                  </div>
+                  <div>
+                    {/* <h4 className='text-[12px]'>Quick tour</h4> */}
+                  </div>
+              </div>
+              <div onClick={()=>headerToggleOn()} className='w-12 h-12 sm:w-16 sm:h-14 my-1 active:scale-95 cursor-pointer rounded-full items-center justify-center'>
+
+                  {userImage !== null && userImage.imagePath !== undefined ? <img className='w-12 h-12 sm:w-16 sm:h-16 rounded-full' src={userImage.imagePath} alt="user1" /> : <BiSolidUserCircle size={'110%'} className='text-main'/>}
+              </div>
             </div>
         </div>
 

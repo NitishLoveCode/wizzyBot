@@ -32,11 +32,14 @@ const driverObj = driver({
 });
 useEffect(()=>{
   setTimeout(()=>{
+    const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
     const find_new_user=localStorage.getItem("embed-and-website")
     if(find_new_user===null){
       driverObj.drive();
       localStorage.setItem("embed-and-website",true)
     }
+  }
   },9000)
 },[])
 // --------------------------------

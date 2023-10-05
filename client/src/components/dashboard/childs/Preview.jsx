@@ -26,11 +26,15 @@ export default function Main_chat_box() {
   });
   useEffect(()=>{
     setTimeout(()=>{
+
+      const Bot_available=localStorage.getItem("Bot_available")
+      if(Bot_available==null){
       const find_new_user=localStorage.getItem("new_for_preview")
       if(find_new_user===null){
         driverObj.drive();
         localStorage.setItem("new_for_preview",true)
       }
+    }
     },2000)
   },[])
   // --------------------------------

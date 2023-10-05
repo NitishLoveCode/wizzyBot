@@ -31,11 +31,15 @@ export default function Q_and_a() {
       });
       useEffect(()=>{
         setTimeout(()=>{
+
+            const Bot_available=localStorage.getItem("Bot_available")
+            if(Bot_available==null){
           const find_new_user=localStorage.getItem("embed-and-q-and-")
           if(find_new_user===null){
             driverObj.drive();
             localStorage.setItem("embed-and-q-and-a",true)
           }
+        }
         },7000)
       },[])
       // --------------------------------
